@@ -11,6 +11,11 @@ var users = require('./routes/users');
 
 var app = express();
 
+var SESSION_NAME = process.env.SESSION_NAME;
+var SESSION_SECRET = process.env.SESSION_SECRET;
+
+var isDev = process.env.NODE_ENV === 'development';
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
