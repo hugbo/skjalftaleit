@@ -3,14 +3,18 @@ extends layout
 // Page containing map
 block content
   .container 
-    .col-md-8
-      .row
+    .row
+      .col-md-8
         // Section containing navigation menu and banner
         include ./bannerAndNav.jade
         
         h4 Seismic map of Iceland
         
         h1 Map here, plx
+  
+    .row
+      .col-md-8.map-display
+          
         
   // Adds footer containing CDN connections and local scripts      
   include ./footer.jade
