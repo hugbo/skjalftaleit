@@ -2,19 +2,12 @@ extends layout
 
 // Page containing map
 block content
-  .container 
-    .row
-      .col-md-8
-        // Section containing navigation menu and banner
-        include ./bannerAndNav.jade
+  h4 Seismic map of Iceland
         
-        h4 Seismic map of Iceland
-        
-        h1 Map here, plx
+  h1 Map here, plx
   
-    .row
-      .col-md-8.map-display
-          
-        
-  // Adds footer containing CDN connections and local scripts      
-  include ./footer.jade
+  #map
+  
+  script(src="../public/javascripts/map.js")
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap" async defer)
+

@@ -4,6 +4,16 @@ html(lang='en')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title The Amateur Geologist Federation
+    link(rel='stylesheet', href="../public/stylesheets/style.css")
     link(rel='stylesheet', href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
   body
-    block content
+    .container 
+      .col-md-8
+        .row
+          // Section containing navigation menu and banner
+          include ./bannerAndNav.jade
+          
+          block content
+        
+    // Adds footer containing CDN connections and local scripts      
+    include ./footer.jade
