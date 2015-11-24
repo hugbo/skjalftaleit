@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var updateDB = require('../lib/StoreData')
 
 /* GET and POST Home page. */
 router.get('/', function(req, res, next) {
@@ -33,10 +34,10 @@ router.get('/data', function(req, res) {
 });
 
 router.post('/data', function(req, res){
-  console.log(req);
-  console.log('req received');
+  var dataArray = req.body.results;
+  updateDB.updateTables(dataArray);
   res.redirect('/');
-})
+});
 
 
 module.exports = router;

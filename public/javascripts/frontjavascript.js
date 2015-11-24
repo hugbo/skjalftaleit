@@ -10,6 +10,7 @@ $(document).ready(function() {
   $.ajax({
   'url': 'http://apis.is/earthquake/is',
   type: 'GET',
+  contentType: 'application/json',
   dataType: 'JSON',
    success: function(response) {
     console.log(response);
@@ -19,14 +20,12 @@ $(document).ready(function() {
   }
 
 
-  function postData(data) {
+  function postData(quakeData) {
   $.ajax({
-    url: 'http://localhost:8080/data',
+    url: '/data',
     type: 'POST',
-    data: data,
-    dataType: 'JSON',
-    success: function() {
-      alert('Virkaði!!');
-    }
-  });
+    contentType: 'application/json',
+    data: JSON.stringify(quakeData),
+    dataType: 'JSON'
+    });
   }
