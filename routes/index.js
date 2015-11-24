@@ -28,4 +28,15 @@ router.post('/map', function(req, res, next) {
   res.render('map');
 });
 
+router.get('/data', function(req, res) {
+  res.render('index', {title: 'The Amateur Geologist Federation' });
+});
+
+router.post('/data', function(req, res){
+  console.log(req);
+  console.log('req received');
+  res.redirect('/');
+})
+
+
 module.exports = router;
