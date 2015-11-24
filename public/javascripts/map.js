@@ -1,6 +1,5 @@
 // Test variables for map placement
-var sping = 64.1;
-var quake1 = new quake(sping,-21.9,3);
+var quake1 = new quake(64.1,-21.9,3);
 var quake2 = new quake(64.150,-21.95,3);
 var quakes = [quake1,quake2];
 
@@ -35,7 +34,7 @@ function placeMarker(arrayOfQuakes) {
 
 // Function for creating object containing quake data
 function quake(latitude, longitude, richter) {
-	var lat = latitude;
-	var lng = longitude;
-	var size = richter;
+	this.lat = latitude;
+	this.lng = longitude;
+	this.strength = richter;
 };
