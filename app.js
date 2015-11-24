@@ -29,8 +29,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Command for allowing server to accesss /img folder and use content
 app.use('/img', express.static(__dirname + '/img'))
-// Command for allowing server access to /frontscripts folder
-app.use('/frontscripts', express.static(__dirname + '/frontscripts'));
 // Command for allowing server access to /public folder
 app.use('/public', express.static(__dirname + '/public'));
 // Command for allowing server access to /bower_components folder
