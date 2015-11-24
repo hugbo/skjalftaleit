@@ -8,6 +8,18 @@ block content
   
   #map
   
-  script(src="../public/javascripts/map.js")
+  p.
+    label(for='size') Size ($0.5 increments):
+    input(
+      type='text'
+      id='size'
+      readonly
+    )
+  #slider-size
+  
+  script(src="../lib/map.js")
+  script(src="../lib/sliders.js")
+  script(src="//code.jquery.com/jquery-1.10.2.js")
+  script(src="//code.jquery.com/ui/1.11.4/jquery-ui.js")
   script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap" async defer)
 
