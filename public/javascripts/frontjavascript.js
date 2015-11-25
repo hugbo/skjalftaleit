@@ -3,8 +3,8 @@ var quakeArray = [];
 // Array of quakes to be displayed (within user set parameters)
 var quakesToDisplay = [];
 var d = new Date();
-var startTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
-var endTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-2);
+var startTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-2);
+var endTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate());
 var minmagnitude = 0;
 var maxmagnitude = 10;
 
@@ -12,7 +12,7 @@ $(document).ready(function() {
   console.log("Stuff's good, frontscript active");
   // Remove navigation buttons from banner
   $('.carousel-indicators ').css("display", "none");
-  setInterval(getData(), 5000);
+  setInterval(getData(startTime, endTime, minmagnitude, maxmagnitude), 5000);
 });
 
   // Receive data for earthquakes and parse it
@@ -30,13 +30,16 @@ $(document).ready(function() {
     }
   });
 
+
+
   //Sækja gögn af USGS
   $.ajax({
-    'url': "http://earthquake.usgs.gov/fdsnws/event/1/query?format=xml&starttime="+
-    startTime+'&'+endTime+'&'+minmagnitude+'&'+maxmagnitude,
+    'url': 'http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime='
+    +startTime+'&endtime='+endTime+'&minmagnitude='+minmagnitude+'&maxmagnitude='
+    +maxmagnitude,
     type: 'GET',
-    contentType: 'application/json',
-    dataType: 'JSON',
+    contentType: 'application/jsonp',
+    dataType: 'JSONP',
     success: function(response) {
       console.log(response);
     },
