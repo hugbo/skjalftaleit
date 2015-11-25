@@ -48,7 +48,11 @@ $(document).ready(function() {
       console.log("USGS no work man :()");
     }
   });
+<<<<<<< HEAD
 
+=======
+  */
+>>>>>>> origin/master
   }
 
   // Post earthquake data onto server
