@@ -10,16 +10,14 @@ html(lang='en')
     link(rel='stylesheet', href='../bower_components/ion.rangeSlider/css/ion.rangeSlider.css')
     link(rel='stylesheet', href='../bower_components/ion.rangeSlider/css/ion.rangeslider.skinHTML5.css')
   body
-    // Jquery script
-    .main-body
     
-      .container 
-        .col-md-12
-          .row
-            .content
-              // Section containing navigation menu and banner
-              include ./bannerAndNav.jade
-              
-              block content        
+    .container 
+      .col-md-12
+        .row
+          .content
+            // Section containing navigation menu and banner
+            include ./bannerAndNav.jade
+           
+            block content        
     // Adds footer containing CDN connections and local scripts      
     include ./footer.jade
