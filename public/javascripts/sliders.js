@@ -2,7 +2,8 @@ var sliderData = {};
 
 $(document).ready(function() {
 	$(function() {
-		$('#slider-size').ionRangeSlider({
+		var sliderSize = $('#slider-size');
+		sliderSize.ionRangeSlider({
 			hide_min_max: true,
 			keyboard: true,
 			min: 0,
@@ -17,11 +18,12 @@ $(document).ready(function() {
 			drag_interval: true,
 			onFinish: function(data) {
 				sliderData = data;
-				console.log(data);
 				console.log(sliderData);
 			}
 		});
-		$('#slider-time').ionRangeSlider({
+		
+		var sliderTime = $('#slider-time');
+		sliderTime.ionRangeSlider({
 			hide_min_max: true,
 			keyboard: true,
 			min: +moment().subtract(48, 'hours').format('X'),
@@ -39,7 +41,6 @@ $(document).ready(function() {
 			},
 			onFinish: function(data) {
 				sliderData = data;
-				console.log(data);
 				console.log(sliderData);
 			}
 		});
