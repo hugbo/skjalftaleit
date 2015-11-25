@@ -1,3 +1,5 @@
+var sliderData = {};
+
 $(document).ready(function() {
 	$(function() {
 		$('#slider-size').ionRangeSlider({
@@ -14,7 +16,9 @@ $(document).ready(function() {
 			min_interval: 0.5,
 			drag_interval: true,
 			onFinish: function(data) {
+				sliderData = data;
 				console.log(data);
+				console.log(sliderData);
 			}
 		});
 	});

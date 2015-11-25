@@ -1,7 +1,9 @@
 // Test variables for map placement
+/*
 var quake1 = new quake(64.1,-21.9,3, "15:00");
 var quake2 = new quake(64.150,-21.95,8, "16.00");
 var quakes = [quake1,quake2];
+*/
 
 var map;
 function initMap() {
@@ -32,6 +34,14 @@ function placeMarker(arrayOfQuakes) {
 			map: map,
 			title: 'marker number ' + i
 		});
+		console.log("Marker placed");
+	}
+};
+
+// Function for placing circle on map with given data
+function placeCircle(arrayOfQuakes) {
+	for(var i = 0; i < arrayOfQuakes.length; i++)
+	{
 		// Sets opacity with respect to richter magnitude
 		var opacity = arrayOfQuakes[i].strength / 9.0;
 		if(opacity > 1.0) {opacity = 1.0}
@@ -46,9 +56,9 @@ function placeMarker(arrayOfQuakes) {
 			center: {lat: arrayOfQuakes[i].lat, lng: arrayOfQuakes[i].lng},
 			radius: arrayOfQuakes[i].strength * 10000
 		});
-		console.log("Marker placed");
+		console.log("Circle placed");
 	}
-};
+}
 
 // Function for creating object containing quake data
 function quake(latitude, longitude, richter, timestamp) {

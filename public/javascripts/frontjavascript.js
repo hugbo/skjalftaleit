@@ -1,3 +1,5 @@
+var quakeArray = [];
+
 $(document).ready(function() {
   console.log("Stuff's good, frontscript active");
   // Remove navigation buttons from banner
@@ -5,7 +7,7 @@ $(document).ready(function() {
   setInterval(getData(), 5000);
 });
 
-
+  // Receive data for earthquakes and parse it
   function getData(){
   $.ajax({
   'url': 'http://apis.is/earthquake/is',
@@ -18,7 +20,6 @@ $(document).ready(function() {
     // Feeds data from apis.is into array of quake objects
     var rawDataArray = response.results;
     console.log(rawDataArray);
-    var quakeArray = [];
     for(var i = 0; i < rawDataArray.length; i++) {
       var latitude = rawDataArray[i].latitude;
       var longitude = rawDataArray[i].longitude;
@@ -30,12 +31,13 @@ $(document).ready(function() {
     }
     console.log(quakeArray);
     placeMarker(quakeArray);
+    placeCircle(quakeArray);
     console.log("Data parsed");
     }
   });
   }
 
-
+  // Post earthquake data onto server
   function postData(quakeData) {
   $.ajax({
     url: '/data',
