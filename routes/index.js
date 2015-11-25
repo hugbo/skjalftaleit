@@ -36,6 +36,8 @@ router.get('/data', function(req, res) {
 router.post('/data', function(req, res){
   var dataArray = req.body.results;
   updateDB.updateTables(dataArray);
+  console.log("Getting all data");
+  console.log(updateDB.getAllData());
   res.redirect('/');
 });
 
