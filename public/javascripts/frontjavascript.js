@@ -9,7 +9,6 @@ var endTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate());
 var minmagnitude = 0;
 var maxmagnitude = 10;
 
-
 $(document).ready(function() {
   console.log("Stuff's good, frontscript active");
   // Remove navigation buttons from banner
@@ -32,28 +31,25 @@ $(document).ready(function() {
     }
   });
 
-  /*
-  var usgsURL = 'http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime='
-  +startTime+'&endtime='+endTime+'&minmagnitude='+minmagnitude+'&maxmagnitude='
-  +maxmagnitude;
 
-  console.log(usgsURL);
+
   //Sækja gögn af USGS
   $.ajax({
-    'url': usgsURL,
+    'url': 'http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime='
+    +startTime+'&endtime='+endTime+'&minmagnitude='+minmagnitude+'&maxmagnitude='
+    +maxmagnitude,
     type: 'GET',
-    contentType: 'application/json',
-    dataType: 'JSON',
+    contentType: 'application/jsonp',
+    dataType: 'JSONP',
     success: function(response) {
       console.log(response);
     },
     error: function() {
-      console.log("USGS no work man :(");
+      console.log("USGS no work man :()");
     }
   });
 
   }
-  */
 
   // Post earthquake data onto server
   function postData(quakeData) {
@@ -83,6 +79,7 @@ function egillAdFikta(response) {
   createHeatmapPoints(quakeArray);
   placeMarkers(markers);
   placeCircles(circles);
+
   //placeHeatmapPoints(heatmapping);
   console.log("Data parsed");
 }
