@@ -51,9 +51,8 @@ $(document).ready(function() {
       console.log("USGS no work man :(");
     }
   });
-
-  }
   */
+  }
 
   // Post earthquake data onto server
   function postData(quakeData) {
