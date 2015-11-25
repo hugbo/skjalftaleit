@@ -2,7 +2,11 @@
 var quakeArray = [];
 // Array of quakes to be displayed (within user set parameters)
 var quakesToDisplay = [];
-
+var d = new Date();
+var startTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
+var endTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-2);
+var minmagnitude = 0;
+var maxmagnitude = 10;
 
 $(document).ready(function() {
   console.log("Stuff's good, frontscript active");
@@ -12,29 +16,35 @@ $(document).ready(function() {
 });
 
   // Receive data for earthquakes and parse it
-  function getData(){
+  function getData(startTime, endTime, minmagnitude, maxmagnitude){
+  //Sækja gögn af Apis.is
   $.ajax({
   'url': 'https://apis.is/earthquake/is',
   type: 'GET',
   contentType: 'application/json',
   dataType: 'JSON',
    success: function(response) {
-    console.log(response);
+   console.log(response);
     postData(response);
-    // Feeds data from apis.is into array of quake objects
-    var rawDataArray = response.results;
-    console.log(rawDataArray);
-    objectToQuakeArray(rawDataArray);
-    console.log(quakeArray);
-    createMarkers(quakeArray);
-    createCircles(quakeArray);
-    createHeatmapPoints(quakeArray);
-    placeMarkers(markers);
-    placeCircles(circles);
-    placeHeatmapPoints(heatmapping);
-    console.log("Data parsed");
+    egillAdFikta(response);
     }
   });
+
+  //Sækja gögn af USGS
+  $.ajax({
+    'url': "http://earthquake.usgs.gov/fdsnws/event/1/query?format=xml&starttime="+
+    startTime+'&'+endTime+'&'+minmagnitude+'&'+maxmagnitude,
+    type: 'GET',
+    contentType: 'application/json',
+    dataType: 'JSON',
+    success: function(response) {
+      console.log(response);
+    },
+    error: function() {
+      console.log("USGS no work man :()");
+    }
+  });
+
   }
 
   // Post earthquake data onto server
@@ -47,3 +57,23 @@ $(document).ready(function() {
     dataType: 'JSON'
     });
   }
+
+/*
+  Notkun: egillAdFikta(response);
+  Fyrir: Egill þarf að vera í stuði til þess að fikta
+  Eftir:  Egill er búinn að fikta ( ͡° ͜ʖ ͡°)
+*/
+function egillAdFikta(response) {
+  // Feeds data from apis.is into array of quake objects
+  var rawDataArray = response.results;
+  console.log(rawDataArray);
+  objectToQuakeArray(rawDataArray);
+  console.log(quakeArray);
+  createMarkers(quakeArray);
+  createCircles(quakeArray);
+  createHeatmapPoints(quakeArray);
+  placeMarkers(markers);
+  placeCircles(circles);
+  placeHeatmapPoints(heatmapping);
+  console.log("Data parsed");
+}
