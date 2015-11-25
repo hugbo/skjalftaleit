@@ -93,16 +93,18 @@ function createHeatmapPoints(arrayOfQuakes) {
 		// LatLng object with coordinates to be placed in the weighted points
 		var latLng = new google.maps.LatLng(arrayOfQuakes[i].lat, arrayOfQuakes[i].lng)
 		// Object containing heatmap data with radius in accordance with magnitude
+		tmpWeight = arrayOfQuakes[i].strength / 15;
 		var weightedLocation = {
 			location: latLng,
-			weight: Math.pow(2,arrayOfQuakes[i].strength)
+			weight: tmpWeight,
+			radius: 1
 		}
 		heatmapData.push(weightedLocation);
 	}
 	// Takes all weighted points and places them on single heatmap layer
 	var heatmapPoints = new google.maps.visualization.HeatmapLayer({
 		data: heatmapData,
-		dissipating: true,
+		dissipating: false,
 	});
 	heatmapping = heatmapPoints;
 }
