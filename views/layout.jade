@@ -12,14 +12,15 @@ html(lang='en')
   body
     // Jquery script
     script(src="../bower_components/jquery/dist/jquery.min.js")
+    .main-body
     
-    .container 
-      .col-md-8
-        .row
-          // Section containing navigation menu and banner
-          include ./bannerAndNav.jade
-          
-          block content
-        
+      .container 
+        .col-md-12
+          .row
+            .content
+              // Section containing navigation menu and banner
+              include ./bannerAndNav.jade
+              
+              block content        
     // Adds footer containing CDN connections and local scripts      
     include ./footer.jade

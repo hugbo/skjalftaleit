@@ -2,15 +2,16 @@ extends layout
 
 // Page containing map
 block content
-  h4 Seismic map of Iceland
-        
-  h1 Map here, plx
+  .mapTitle
+    h1 Seismic map of Iceland
   
   #map
     script(src="../public/javascripts/map.js")
     script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap" async defer)
-
-  #slider-size
+  
+  .sliders
+    p(class='slider-text') Veldu stærð skjálfta miðað við Richter skalann
+    #slider-size
   
   script(src='../bower_components/ion.rangeslider/js/ion.rangeSlider.js')
   script(src="../public/javascripts/sliders.js")
