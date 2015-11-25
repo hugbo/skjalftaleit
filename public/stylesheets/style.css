@@ -6,7 +6,7 @@ body {
   padding-bottom: 100px;
   background: url('../../img/seljalandsfoss.jpg');
   background-size: cover;
-  background-position: fixed;
+  background-attachment: fixed;
 }
 
 a {
@@ -14,7 +14,7 @@ a {
 }
 
 .content {
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.7);
 }
 
 #map {
@@ -24,6 +24,7 @@ a {
 
 .mapTitle {
   text-align: center;
+  font-size: 2em;
 }
 
 .sliders {
@@ -32,4 +33,5 @@ a {
 
 p.slider-text {
   text-align: center;
+  font-size: 2em;
 }
