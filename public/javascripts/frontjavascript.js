@@ -78,10 +78,11 @@ function egillAdFikta(response) {
   objectToQuakeArray(rawDataArray);
   console.log(quakeArray);
   createMarkers(quakeArray);
+  setMarkerInfo(markers);
   createCircles(quakeArray);
   createHeatmapPoints(quakeArray);
   placeMarkers(markers);
   placeCircles(circles);
-  placeHeatmapPoints(heatmapping);
+  //placeHeatmapPoints(heatmapping);
   console.log("Data parsed");
 }

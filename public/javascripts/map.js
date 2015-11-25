@@ -31,8 +31,6 @@ function objectToQuakeArray(rawDataArray)
 	}
 }
 
-// Function to 
-
 // Function for creating markers and placing in array
 function createMarkers(arrayOfQuakes) {
 	for(var i = 0; i < arrayOfQuakes.length; i++)
@@ -54,6 +52,45 @@ function placeMarkers(arrayOfMarkers) {
 		console.log("Marker placed");
 	}
 };
+
+// Function for attaching info windows to markers
+function setMarkerInfo(markerArray) {
+	for(var i = 0; i < markerArray.length; i++)
+	{
+		// Content for info box
+		var contentString = '<div class="markerContent">' +
+			'<p>' +
+			'Latitude: ' + markerArray[i].lat + '<br>'
+			'Longitude: ' + markerArray[i].lng + '<br>'
+			'Magnitude: ' + markerArray[i].strength + '<br>'
+			'Time: ' + markerArray[i].time + '<br>'
+			'</p>' +
+			'</div>';
+
+		// Creates info window
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+
+		markerArray[i].infowindow = infowindow;
+		attachMarkerListeners(i);
+	}
+}
+
+// Function for adding event listeners to markers so they display
+// info windows when clicked
+function attachMarkerListeners(i) {
+	google.maps.event.addListener(markers[i], 'click', function(){
+		this.infowindow.open(map, this);
+	});
+}
+
+// Function for opening info window when marker is clicked
+function markerClicked() {
+	return function() {
+		markers[i].info.open(map, markers[i]);
+	}
+}
 
 // Function for creating circles
 function createCircles(arrayOfQuakes) {
