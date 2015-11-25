@@ -59,12 +59,10 @@ function setMarkerInfo(markerArray) {
 	{
 		// Content for info box
 		var contentString = '<div class="markerContent">' +
-			'<p>' +
-			'Latitude: ' + markerArray[i].lat + '<br>'
-			'Longitude: ' + markerArray[i].lng + '<br>'
-			'Magnitude: ' + markerArray[i].strength + '<br>'
-			'Time: ' + markerArray[i].time + '<br>'
-			'</p>' +
+			'Latitude: ' + markerArray[i].lat +
+			'Longitude: ' + markerArray[i].lng +
+			'Magnitude: ' + markerArray[i].strength +
+			'Time: ' + markerArray[i].time + '</p>'
 			'</div>';
 
 		// Creates info window
