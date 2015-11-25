@@ -14,7 +14,7 @@ $(document).ready(function() {
   // Receive data for earthquakes and parse it
   function getData(){
   $.ajax({
-  'url': 'http://apis.is/earthquake/is',
+  'url': 'https://apis.is/earthquake/is',
   type: 'GET',
   contentType: 'application/json',
   dataType: 'JSON',
