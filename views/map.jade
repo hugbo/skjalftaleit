@@ -7,11 +7,27 @@ block content
   
   #map
     script(src="../public/javascripts/map.js")
-    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap" async defer)
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&libraries=geometry,visualization&callback=initMap" async defer)
   
   .sliders
-    p(class='slider-text') Veldu stærð skjálfta miðað við Richter skalann
+    p(class='slider-text') Select which earthquakes to display, based on their magnitude on Richter scale 
     #slider-size
+    
+  form.form-inline
+    .form-group
+      .checkbox
+        label(for='checkbox')
+          input(type='checkbox')#markerCheckbox
+          | Marker
+      .checkbox
+        label(for='checkbox')#circleCheckbox
+          input(type='checkbox')
+          | Circles
+      .checkbox
+        label(for='checkbox')
+          input(type='checkbox')
+          | Heatmap
+  
   
   script(src='../bower_components/ion.rangeslider/js/ion.rangeSlider.js')
   script(src="../public/javascripts/sliders.js")

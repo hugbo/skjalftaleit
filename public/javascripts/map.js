@@ -3,6 +3,7 @@ var map;
 // Variables for earthquake display on map
 var markers = [];
 var circles = [];
+var heatmapping = {};
 
 // Function for initializing map
 function initMap() {
@@ -10,12 +11,13 @@ function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		// Initialized with focus on Reykjavik coordinates
 		center: {lat: 64.133, lng: -21.933},
-		zoom: 8
+		zoom: 5
 	});
 };
 
 // Function for creating array of quake objects with data
-// array from JSON array
+// array from JSON array. Stores them in array named quakearray
+// in file frontjavascript.js
 function objectToQuakeArray(rawDataArray)
 {
 	for(var i = 0; i < rawDataArray.length; i++) {
@@ -55,7 +57,7 @@ function placeMarkers(arrayOfMarkers) {
 function createCircles(arrayOfQuakes) {
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
-		// Sets opacity with respect to richter magnitude
+		// Sets opacity with respect to Richter magnitude
 		var opacity = arrayOfQuakes[i].strength / 9.0;
 		if(opacity > 1.0) {opacity = 1.0}
 		// Places overlay circles
@@ -82,6 +84,31 @@ function placeCircles(arrayOfCircles) {
 		console.log("Circle placed");
 	}
 };
+
+// Function for creating heatmap points
+function createHeatmapPoints(arrayOfQuakes) {
+	var heatmapData = [];
+	for(var i = 0; i < arrayOfQuakes.length; i++)
+	{
+		// Object containing heatmap data with radius in accordance with magnitude
+		var weightedLocation = {
+			location: {lat: arrayOfQuakes[i].lat, lng: arrayOfQuakes[i].lng},
+			weight: Math.pow(2,arrayOfQuakes[i].strength)
+		}
+		heatmapData.push(weightedLocation);
+	}
+	// Takes all weighted points and places them on single heatmap layer
+	var heatmapPoints = new google.maps.visualization.HeatmapLayer({
+		data: heatmapData,
+		dissipating: true,
+	});
+	heatmapping = heatmapPoints;
+}
+
+// Function for placing heatmap data on map
+function placeHeatmapPoints(heatmapping) {
+	heatmapping.setMap(map);
+}
 
 // Function for creating object containing quake data
 function quake(latitude, longitude, richter, timestamp) {

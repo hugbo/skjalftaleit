@@ -28,8 +28,10 @@ $(document).ready(function() {
     console.log(quakeArray);
     createMarkers(quakeArray);
     createCircles(quakeArray);
+    createHeatmapPoints(quakeArray);
     placeMarkers(markers);
     placeCircles(circles);
+    placeHeatmapPoints(heatmapping);
     console.log("Data parsed");
     }
   });
