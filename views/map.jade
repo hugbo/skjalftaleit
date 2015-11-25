@@ -14,20 +14,34 @@ block content
     #slider-size
     p(class='slider-text') Determine the time period of displayed earthquakes
     #slider-time
-    
-  form.form-inline
-    .form-group
-      .checkbox
-        label(for='checkbox')
-          input(type='checkbox')#markerCheckbox
-          | Marker
-      .checkbox
-        label(for='checkbox')#circleCheckbox
-          input(type='checkbox')
-          | Circles
-      .checkbox
-        label(for='checkbox')
-          input(type='checkbox')
-          | Heatmap
   
-  
+  .table-responsive
+    table#checkers
+      tr
+        td
+          label(for'checkbox')
+            input(type='checkbox')#markerCheckbox
+            | Marker
+        td 
+          | Place markers where each earthquacke occured. The markers are identical but on 
+          br
+          | click will display information about their respective earthquake.
+      tr
+        td
+          label(for'checkbox')
+            input(type='checkbox')#circleCheckbox
+            | Circles
+        td 
+          | Places circles where each earthquake occured. The size of the circle is proportionate 
+          br
+          | to the size of the earthquake and so is the intensity of the colour.
+      tr
+        td
+          label(for'checkbox')
+            input(type='checkbox')#heatCheckbox
+            | Heatmap
+        td 
+          | Produces a heatmap that shows whether earthquakes a frequent 
+          br
+          | and/or of great magnitude on each location.
+        

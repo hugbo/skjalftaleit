@@ -13,13 +13,14 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: 'Oswald', sans-serif;
 }
 
 a {
   color: #00B7FF;
+  font-family: 'Oswald', sans-serif;
 }
-
 
 .container {
   height: 100%;
@@ -46,6 +47,7 @@ a {
 .mapTitle {
   text-align: center;
   font-size: 2em;
+  font-family: 'Oswald', 'Helvetica', sans-serif;
 }
 
 .sliders {
@@ -56,4 +58,20 @@ a {
 p.slider-text {
   text-align: center;
   font-size: 2em;
+}
+
+table#checkers {
+  display: table;
+  font-size: 1.2em;
+  margin: 20px auto 20px auto;
+  border-spacing: 30px;
+  border-collapse: separate;
+}
+
+td {
+  padding: 0 5px 0 5px;
+}
+
+td:hover {
+  background: rgba(255,255,255,0.5);
 }

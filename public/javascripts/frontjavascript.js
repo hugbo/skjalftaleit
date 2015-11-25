@@ -77,7 +77,7 @@ function egillAdFikta(response) {
   console.log(markers);
   setMarkerInfo(markers);
   createCircles(quakeArray);
-  createHeatmapPoints(quakeArray);
+  //createHeatmapPoints(quakeArray);
   placeMarkers(markers);
   placeCircles(circles);
 
