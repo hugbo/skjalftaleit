@@ -1,4 +1,8 @@
+// Array with info of all quakes available
 var quakeArray = [];
+// Array of quakes to be displayed (within user set parameters)
+var quakesToDisplay = [];
+
 
 $(document).ready(function() {
   console.log("Stuff's good, frontscript active");
@@ -20,18 +24,12 @@ $(document).ready(function() {
     // Feeds data from apis.is into array of quake objects
     var rawDataArray = response.results;
     console.log(rawDataArray);
-    for(var i = 0; i < rawDataArray.length; i++) {
-      var latitude = rawDataArray[i].latitude;
-      var longitude = rawDataArray[i].longitude;
-      var strength = rawDataArray[i].size;
-      var timestamp = rawDataArray.timestamp;
-      var tmpQuake = new quake(latitude, longitude, strength, timestamp)
-      quakeArray[i] = tmpQuake;
-      console.log("Quake added");
-    }
+    objectToQuakeArray(rawDataArray);
     console.log(quakeArray);
-    placeMarker(quakeArray);
-    placeCircle(quakeArray);
+    createMarkers(quakeArray);
+    createCircles(quakeArray);
+    placeMarkers(markers);
+    placeCircles(circles);
     console.log("Data parsed");
     }
   });
