@@ -1,45 +1,58 @@
-// Test variables for map placement
-/*
-var quake1 = new quake(64.1,-21.9,3, "15:00");
-var quake2 = new quake(64.150,-21.95,8, "16.00");
-var quakes = [quake1,quake2];
-*/
-
+// Variable for google map
 var map;
+// Variables for earthquake display on map
+var markers = [];
+var circles = [];
+
+// Function for initializing map
 function initMap() {
 	console.log('er inní initMap');
 	map = new google.maps.Map(document.getElementById('map'), {
+		// Initialized with focus on Reykjavik coordinates
 		center: {lat: 64.133, lng: -21.933},
 		zoom: 8
 	});
+};
 
-	// Test marker for Marker function
-	/*
-	var marker = new google.maps.Marker({
-		position: {lat: 64.123, lng: -21.933},
-		map: map,
-		title: 'eyy, lmao'
-	});
-	*/
+// Function for creating array of quake objects with data
+// array from JSON array
+function objectToQuakeArray(rawDataArray)
+{
+	for(var i = 0; i < rawDataArray.length; i++) {
+		var latitude = rawDataArray[i].latitude;
+		var longitude = rawDataArray[i].longitude;
+		var strength = rawDataArray[i].size;
+		var timestamp = rawDataArray.timestamp;
+		var tmpQuake = new quake(latitude, longitude, strength, timestamp)
+		quakeArray.push(tmpQuake);
+		console.log("Quake added");
+	}
+}
 
+// Function for creating markers and placing in array
+function createMarkers(arrayOfQuakes) {
+	for(var i = 0; i < arrayOfQuakes.length; i++)
+	{
+		var marker = new google.maps.Marker({
+			position : {lat: arrayOfQuakes[i].lat, lng: arrayOfQuakes[i].lng},
+			title: 'marker number ' + i
+		});
+		markers.push(marker);
+		console.log("Marker created");
+	}
 };
 
 // Function for placing marker on map with given data
-function placeMarker(arrayOfQuakes) {
-	for(var i = 0; i < arrayOfQuakes.length; i++)
+function placeMarkers(arrayOfMarkers) {
+	for(var i = 0; i < arrayOfMarkers.length; i++)
 	{
-		// Places marker itself
-		var marker = new google.maps.Marker({
-			position : {lat: arrayOfQuakes[i].lat, lng: arrayOfQuakes[i].lng},
-			map: map,
-			title: 'marker number ' + i
-		});
+		arrayOfMarkers[i].setMap(map);
 		console.log("Marker placed");
 	}
 };
 
-// Function for placing circle on map with given data
-function placeCircle(arrayOfQuakes) {
+// Function for creating circles
+function createCircles(arrayOfQuakes) {
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
 		// Sets opacity with respect to richter magnitude
@@ -56,9 +69,19 @@ function placeCircle(arrayOfQuakes) {
 			center: {lat: arrayOfQuakes[i].lat, lng: arrayOfQuakes[i].lng},
 			radius: arrayOfQuakes[i].strength * 10000
 		});
+		circles.push(circle);
+		console.log("Circle created");
+	}
+};
+
+// Function for placing circle on map with given data
+function placeCircles(arrayOfCircles) {
+	for(var i = 0; i < arrayOfCircles.length; i++)
+	{
+		circles[i].setMap(map);
 		console.log("Circle placed");
 	}
-}
+};
 
 // Function for creating object containing quake data
 function quake(latitude, longitude, richter, timestamp) {
