@@ -19,7 +19,7 @@ $(document).ready(function() {
 			drag_interval: true,
 			onFinish: function(data) {
 				richterSliderData = data;
-				console.log(sliderData);
+				console.log(data);
 			}
 		});
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
 			},
 			onFinish: function(data) {
 				timeSliderData = data;
-				console.log(sliderData);
+				console.log(data);
 			}
 		});
 	});

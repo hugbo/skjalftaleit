@@ -2,6 +2,7 @@
 var quakeArray = [];
 // Array of quakes to be displayed (within user set parameters)
 var quakesToDisplay = [];
+// Current date, created when webpage is run
 var d = new Date();
 var startTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-2);
 var endTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate());

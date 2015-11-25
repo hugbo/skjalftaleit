@@ -31,6 +31,8 @@ function objectToQuakeArray(rawDataArray)
 	}
 }
 
+// Function to 
+
 // Function for creating markers and placing in array
 function createMarkers(arrayOfQuakes) {
 	for(var i = 0; i < arrayOfQuakes.length; i++)
