@@ -1,6 +1,7 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
-var updateDB = require('../lib/StoreData')
+var updateDB = require('../lib/StoreData');
 
 /* GET and POST Home page. */
 router.get('/', function(req, res, next) {
@@ -28,6 +29,7 @@ router.get('/map', function(req, res, next) {
 router.post('/map', function(req, res, next) {
   res.render('map');
 });
+
 
 router.get('/data', function(req, res) {
   res.render('index', {title: 'The Amateur Geologist Federation' });

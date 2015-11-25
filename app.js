@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
 var app = express();
 
 var SESSION_NAME = process.env.SESSION_NAME;
@@ -34,10 +35,11 @@ app.use('/public', express.static(__dirname + '/public'));
 // Command for allowing server access to /bower_components folder
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
-
-
 app.use('/', routes);
 app.use('/users', users);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
