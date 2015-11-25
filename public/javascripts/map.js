@@ -58,7 +58,7 @@ function createCircles(arrayOfQuakes) {
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
 		// Sets opacity with respect to Richter magnitude
-		var opacity = arrayOfQuakes[i].strength / 9.0;
+		var opacity = arrayOfQuakes[i].strength / 10.0;
 		if(opacity > 1.0) {opacity = 1.0}
 		// Places overlay circles
 		var circle = new google.maps.Circle({

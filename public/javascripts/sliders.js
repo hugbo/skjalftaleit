@@ -1,4 +1,5 @@
-var sliderData = {};
+var richterSliderData = {};
+var timeSliderData = {};
 
 $(document).ready(function() {
 	$(function() {
@@ -17,11 +18,11 @@ $(document).ready(function() {
 			min_interval: 0.5,
 			drag_interval: true,
 			onFinish: function(data) {
-				sliderData = data;
+				richterSliderData = data;
 				console.log(sliderData);
 			}
 		});
-		
+
 		var sliderTime = $('#slider-time');
 		sliderTime.ionRangeSlider({
 			hide_min_max: true,
@@ -40,7 +41,7 @@ $(document).ready(function() {
 				return m.format('Do MMMM, HH:mm');
 			},
 			onFinish: function(data) {
-				sliderData = data;
+				timeSliderData = data;
 				console.log(sliderData);
 			}
 		});
