@@ -48,7 +48,7 @@ $(document).ready(function() {
       console.log("USGS no work man :()");
     }
   });
-  
+
   }
 
   // Post earthquake data onto server
@@ -74,6 +74,7 @@ function egillAdFikta(response) {
   objectToQuakeArray(rawDataArray);
   console.log(quakeArray);
   createMarkers(quakeArray);
+  console.log(markers);
   setMarkerInfo(markers);
   createCircles(quakeArray);
   createHeatmapPoints(quakeArray);

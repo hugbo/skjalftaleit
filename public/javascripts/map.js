@@ -39,6 +39,7 @@ function createMarkers(arrayOfQuakes) {
 			position : {lat: arrayOfQuakes[i].lat, lng: arrayOfQuakes[i].lng},
 			title: 'marker number ' + i
 		});
+		marker['quake'] = arrayOfQuakes[i];
 		markers.push(marker);
 		console.log("Marker created");
 	}
@@ -59,10 +60,10 @@ function setMarkerInfo(markerArray) {
 	{
 		// Content for info box
 		var contentString = '<div class="markerContent">' +
-			'Latitude: ' + markerArray[i].lat +
-			'Longitude: ' + markerArray[i].lng +
-			'Magnitude: ' + markerArray[i].strength +
-			'Time: ' + markerArray[i].time + '</p>'
+			'Latitude: ' + markerArray[i].quake.lat +
+			'Longitude: ' + markerArray[i].quake.lng +
+			'Magnitude: ' + markerArray[i].quake.strength +
+			'Time: ' + markerArray[i].quake.time + '</p>'
 			'</div>';
 
 		// Creates info window
