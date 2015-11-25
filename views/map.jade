@@ -10,8 +10,10 @@ block content
     script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap&libraries=geometry,visualization" async defer)
   
   .sliders
-    p(class='slider-text') Select which earthquakes to display, based on their magnitude on Richter scale 
+    p(class='slider-text') Determine the magnitude of displayed earthquakes
     #slider-size
+    p(class='slider-text') Determine the time period of displayed earthquakes
+    #slider-time
     
   form.form-inline
     .form-group
