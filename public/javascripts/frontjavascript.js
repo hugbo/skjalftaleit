@@ -15,6 +15,22 @@ $(document).ready(function() {
    success: function(response) {
     console.log(response);
     postData(response);
+    // Feeds data from apis.is into array of quake objects
+    var rawDataArray = response.results;
+    console.log(rawDataArray);
+    var quakeArray = [];
+    for(var i = 0; i < rawDataArray.length; i++) {
+      var latitude = rawDataArray[i].latitude;
+      var longitude = rawDataArray[i].longitude;
+      var strength = rawDataArray[i].size;
+      var timestamp = rawDataArray.timestamp;
+      var tmpQuake = new quake(latitude, longitude, strength, timestamp)
+      quakeArray[i] = tmpQuake;
+      console.log("Quake added");
+    }
+    console.log(quakeArray);
+    placeMarker(quakeArray);
+    console.log("Data parsed");
     }
   });
   }

@@ -1,6 +1,6 @@
 // Test variables for map placement
-var quake1 = new quake(64.1,-21.9,3);
-var quake2 = new quake(64.150,-21.95,8);
+var quake1 = new quake(64.1,-21.9,3, "15:00");
+var quake2 = new quake(64.150,-21.95,8, "16.00");
 var quakes = [quake1,quake2];
 
 var map;
@@ -11,13 +11,15 @@ function initMap() {
 		zoom: 8
 	});
 
+	// Test marker for Marker function
+	/*
 	var marker = new google.maps.Marker({
 		position: {lat: 64.123, lng: -21.933},
 		map: map,
 		title: 'eyy, lmao'
 	});
+	*/
 
-	placeMarker(quakes);
 };
 
 // Function for placing marker on map with given data
@@ -44,13 +46,14 @@ function placeMarker(arrayOfQuakes) {
 			center: {lat: arrayOfQuakes[i].lat, lng: arrayOfQuakes[i].lng},
 			radius: arrayOfQuakes[i].strength * 10000
 		});
+		console.log("Marker placed");
 	}
 };
 
-
 // Function for creating object containing quake data
-function quake(latitude, longitude, richter) {
+function quake(latitude, longitude, richter, timestamp) {
 	this.lat = latitude;
 	this.lng = longitude;
 	this.strength = richter;
+	this.time = timestamp;
 };
