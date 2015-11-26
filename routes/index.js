@@ -2,9 +2,17 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var updateDB = require('../lib/StoreData');
+var mapData = require('../public/javascripts/map');
+
 
 /* GET and POST Home page. */
 router.get('/', function(req, res, next) {
+  updateDB.getAllData(null, function(data){
+    updateDB.objectToQuakeArray(data, function(quakeArray){
+      mapData.dataInit(quakeArray);
+    });
+  })
+
   res.render('index', { title: 'The Amateur Geologist Federation' });
 });
 

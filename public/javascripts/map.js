@@ -5,6 +5,16 @@ var markers = [];
 var circles = [];
 var heatmapping = {};
 
+var mapData = module.exports;
+
+mapData.dataInit = function(quakeArray) {
+	createMarkers(quakeArray);
+	createCircles(quakeArray);
+	placeMarkers(markers);
+	placeCircles(circles);
+	console.log("Data parsed");
+}
+
 // Function for initializing map
 function initMap() {
 	console.log('er inní initMap');
@@ -14,22 +24,6 @@ function initMap() {
 		zoom: 5
 	});
 };
-
-// Function for creating array of quake objects with data
-// array from JSON array. Stores them in array named quakearray
-// in file frontjavascript.js
-function objectToQuakeArray(rawDataArray)
-{
-	for(var i = 0; i < rawDataArray.length; i++) {
-		var latitude = rawDataArray[i].latitude;
-		var longitude = rawDataArray[i].longitude;
-		var strength = rawDataArray[i].size;
-		var timestamp = new Date(rawDataArray[i].timestamp);
-		var tmpQuake = new quake(latitude, longitude, strength, timestamp)
-		quakeArray.push(tmpQuake);
-		console.log("Quake added");
-	}
-}
 
 // Function for creating markers and placing in array
 function createMarkers(arrayOfQuakes) {
@@ -155,13 +149,6 @@ function placeHeatmapPoints(heatmapInput) {
 	heatmapInput.setMap(map);
 }
 
-// Function for creating object containing quake data
-function quake(latitude, longitude, richter, timestamp) {
-	this.lat = latitude;
-	this.lng = longitude;
-	this.strength = richter;
-	this.time = timestamp;
-};
 
 // Function for parsing Date object into custom string containing the day
 function dayFromDateObject(dateObject)

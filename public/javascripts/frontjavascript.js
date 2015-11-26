@@ -1,89 +1,39 @@
-// Array with info of all quakes available
-var quakeArray = [];
-// Array of quakes to be displayed (within user set parameters)
-var quakesToDisplay = [];
 // Current date, created when webpage is run
 var d = new Date();
-var startTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-2);
-var endTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate());
+var startTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() - 2);
+var endTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate());
 var minmagnitude = 0;
 var maxmagnitude = 10;
-
-var tmpData = {};
 
 $(document).ready(function() {
   console.log("Stuff's good, frontscript active");
   // Remove navigation buttons from banner
   $('.carousel-indicators ').css("display", "none");
-  setInterval(getData(startTime, endTime, minmagnitude, maxmagnitude), 5000);
+  setInterval(getData(), 300000);
 });
 
-  // Receive data for earthquakes and parse it
-  function getData(startTime, endTime, minmagnitude, maxmagnitude){
+// Receive data for earthquakes and parse it
+function getData() {
   //Sækja gögn af Apis.is
   $.ajax({
-  'url': 'https://apis.is/earthquake/is',
-  type: 'GET',
-  contentType: 'application/json',
-  dataType: 'JSON',
-   success: function(response) {
-    tmpData = response;
-    console.log(response);
-    postData(response);
-    egillAdFikta(response);
-    }
-  });
-
-
-
-  //Sækja gögn af USGS
-  $.ajax({
-    'url': 'http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime='
-    +startTime+'&endtime='+endTime+'&minmagnitude='+minmagnitude+'&maxmagnitude='
-    +maxmagnitude,
+    'url': 'https://apis.is/earthquake/is',
     type: 'GET',
-    contentType: 'application/jsonp',
-    dataType: 'JSONP',
+    contentType: 'application/json',
+    dataType: 'JSON',
     success: function(response) {
-      console.log(response);
-    },
-    error: function() {
-      console.log("USGS no work man :()");
+      postData(response);
     }
   });
 
-  }
+}
 
-  // Post earthquake data onto server
-  function postData(quakeData) {
+// Post earthquake data onto server
+function postData(quakeData) {
   $.ajax({
     url: '/data',
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify(quakeData),
     dataType: 'JSON'
-    });
-  }
-
-/*
-  Notkun: egillAdFikta(response);
-  Fyrir: Egill þarf að vera í stuði til þess að fikta
-  Eftir:  Egill er búinn að fikta ( ͡° ͜ʖ ͡°)
-*/
-function egillAdFikta(response) {
-  // Feeds data from apis.is into array of quake objects
-  var rawDataArray = response.results;
-  console.log(rawDataArray);
-  objectToQuakeArray(rawDataArray);
-  console.log(quakeArray);
-  createMarkers(quakeArray);
-  console.log(markers);
-  setMarkerInfo(markers);
-  createCircles(quakeArray);
-  //createHeatmapPoints(quakeArray);
-  placeMarkers(markers);
-  placeCircles(circles);
-
-  //placeHeatmapPoints(heatmapping);
-  console.log("Data parsed");
+  });
 }
