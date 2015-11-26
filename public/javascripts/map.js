@@ -24,7 +24,7 @@ function objectToQuakeArray(rawDataArray)
 		var latitude = rawDataArray[i].latitude;
 		var longitude = rawDataArray[i].longitude;
 		var strength = rawDataArray[i].size;
-		var timestamp =  Math.round(new Date(rawDataArray[i].timestamp).getTime()/1000);
+		var timestamp =  Date(rawDataArray[i].timestamp);
 		var tmpQuake = new quake(latitude, longitude, strength, timestamp)
 		quakeArray.push(tmpQuake);
 		console.log("Quake added");
@@ -166,8 +166,8 @@ function quake(latitude, longitude, richter, timestamp) {
 function dateToCustomString(dateObject)
 {
 	var stringToReturn = "";
-	stringToReturn += dateObject.getFullYear + "/"
-	stringToReturn += dateObject.getMonth + "/"
-	stringToReturn += dateObject.getDate + " "
+	stringToReturn = dateObject.getFullYear + "/"
+//	stringToReturn += dateObject.getMonth + "/"
+//	stringToReturn += dateObject.getDate + " "
 	return stringToReturn;
 }
