@@ -9,6 +9,8 @@ var endTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate());
 var minmagnitude = 0;
 var maxmagnitude = 10;
 
+var tmpData = {};
+
 $(document).ready(function() {
   console.log("Stuff's good, frontscript active");
   // Remove navigation buttons from banner
@@ -25,7 +27,8 @@ $(document).ready(function() {
   contentType: 'application/json',
   dataType: 'JSON',
    success: function(response) {
-   console.log(response);
+    tmpData = response;
+    console.log(response);
     postData(response);
     egillAdFikta(response);
     }
