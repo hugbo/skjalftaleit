@@ -1,3 +1,9 @@
+/*
+//==============
+// HTML AND BODY
+//==============
+*/
+
 html {
   margin: 0;
   height: 100%;
@@ -7,7 +13,6 @@ body {
   margin: 0;
   min-height: 100%;
   width: 100%;
-  padding-bottom: 100px;
   background: url('../../img/seljalandsfoss.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -17,10 +22,22 @@ body {
   font-family: 'Oswald', sans-serif;
 }
 
+/*
+//==============
+// GENERIC STUFF
+//==============
+*/
+
 a {
   color: #00B7FF;
   font-family: 'Oswald', sans-serif;
 }
+
+/*
+//=======
+// LAYOUT
+//=======
+*/
 
 .container {
   height: 100%;
@@ -39,17 +56,60 @@ a {
   background: rgba(255,255,255,0.7);
 }
 
+/*
+//===========
+// INDEX PAGE
+//===========
+*/
+
+/* INDEX SCREEN */
+
+.siteTitleAlignHor {
+  height: 100vh;
+  min-width: 100%;
+  position: relative;
+  
+  display: table;
+  text-align: center;
+}
+
+.siteTitleAlignVert {
+  display: table-cell;
+  vertical-align: middle;
+  
+  color: whitesmoke;
+  font-size: 2em;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  text-shadow: 3px 3px darkgray;
+}
+
+.siteTitle {
+  border: 10px solid whitesmoke;
+  display: inline-block;
+  padding: 50px;
+  background: rgba(200,200,200,0.4);
+}
+
+
+/* MAP */
+.mapTitle {
+  padding: 1.5em;
+  
+  text-align: center;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  font-size: 1.5em;
+}
+
+.mapSection {
+  margin-bottom: 25vh;
+}
+
 #map {
   height: 600px;
   width: 100%;
 }
 
-.mapTitle {
-  text-align: center;
-  font-size: 2em;
-  font-family: 'Oswald', 'Helvetica', sans-serif;
-}
-
+/* SLIDERS */
 .sliders {
   padding: 10px;
   background: rgba(255,255,255,0.5);
@@ -60,6 +120,7 @@ p.slider-text {
   font-size: 2em;
 }
 
+/* TABLE */
 table#checkers {
   display: table;
   font-size: 1.2em;
@@ -68,10 +129,25 @@ table#checkers {
   border-collapse: separate;
 }
 
-td {
-  padding: 0 5px 0 5px;
+#checkers td {
+  padding: 5px;
 }
 
 td:hover {
+  border-radius: 5px;
+  padding: 5px;
   background: rgba(255,255,255,0.5);
+}
+
+/* ABOUT US */
+.aboutSection {
+  padding: 10px;
+}
+
+.aboutSection > h4 {
+  padding: 1.5em;
+  
+  text-align: center;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  font-size: 3em;
 }

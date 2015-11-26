@@ -1,17 +1,32 @@
-extends layout
-
-// Home page
-block content
-        h4 Welcome to the home page of the Amateur Geologist Federation.
-        p. 
-          To get to know us better, visit our "About" page for further 
-          information regarding our organization and it's functions.
-        p.
-          We are currently hosting a map that shows the location 
-          and magnitude for the most recent earthquakes in Iceland. If you 
-          wish to view this map, visit our "Map" page.
-        p. 
-          If you are an amateur geologist and wish to add your own seismic
-          observations to the map, head on over to the "Submit" page and
-          post your info there.
-
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Seismic map of Iceland
+    link(rel='stylesheet', href="../public/stylesheets/style.css")
+    link(rel='stylesheet', href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='../bower_components/ion.rangeSlider/css/normalize.css')
+    link(rel='stylesheet', href='../bower_components/ion.rangeSlider/css/ion.rangeSlider.css')
+    link(rel='stylesheet', href='../bower_components/ion.rangeSlider/css/ion.rangeslider.skinHTML5.css')
+    
+    link(href='https://fonts.googleapis.com/css?family=Oswald', rel='stylesheet', type='text/css')
+  body
+    
+    include ./indexScreen.jade
+    
+    .container 
+      .col-md-12
+        .row
+          .content
+            // Section containing navigation menu and banner
+            // include ./bannerAndNav.jade
+            .mapSection
+              include ./map.jade
+            
+            .aboutSection
+              include ./about.jade
+            
+       
+    // Adds footer containing CDN connections and local scripts      
+    include ./footer.jade

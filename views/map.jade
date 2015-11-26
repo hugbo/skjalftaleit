@@ -1,21 +1,17 @@
-extends layout
-
-// Page containing map
-block content
-  .mapTitle
-    h1 Seismic map of Iceland
-  
-  #map
+.mapTitle
+    h1 The Map
+    
+#map
     script(src="../public/javascripts/map.js")
     script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap&libraries=geometry,visualization" async defer)
   
-  .sliders
+.sliders
     p(class='slider-text') Determine the magnitude of displayed earthquakes
     #slider-size
     p(class='slider-text') Determine the time period of displayed earthquakes
     #slider-time
   
-  .table-responsive
+.table-responsive
     table#checkers
       tr
         td
@@ -44,4 +40,3 @@ block content
           | Produces a heatmap that shows whether earthquakes a frequent 
           br
           | and/or of great magnitude on each location.
-        
