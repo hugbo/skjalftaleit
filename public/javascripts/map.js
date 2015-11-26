@@ -24,7 +24,7 @@ function objectToQuakeArray(rawDataArray)
 		var latitude = rawDataArray[i].latitude;
 		var longitude = rawDataArray[i].longitude;
 		var strength = rawDataArray[i].size;
-		var timestamp =  Date(rawDataArray[i].timestamp);
+		var timestamp = new Date(rawDataArray[i].timestamp);
 		var tmpQuake = new quake(latitude, longitude, strength, timestamp)
 		quakeArray.push(tmpQuake);
 		console.log("Quake added");
@@ -64,7 +64,8 @@ function setMarkerInfo(markerArray) {
 					'Latitude: ' + markerArray[i].quake.lat + '<br/>' +
 					'Longitude: ' + markerArray[i].quake.lng + '<br/>' +
 					'Magnitude: ' + markerArray[i].quake.strength + '<br/>' +
-					'Time: ' + dateToCustomString(markerArray[i].quake.time)
+					'Date: ' + dayFromDateObject(markerArray[i].quake.time) + '<br/>' +
+					'Time: ' + timeFromDateObject(markerArray[i].quake.time)
 				+ '</p>'
 			'</div>';
 
@@ -162,12 +163,20 @@ function quake(latitude, longitude, richter, timestamp) {
 	this.time = timestamp;
 };
 
-// Function for parsing date object into custom string containing the date
-function dateToCustomString(dateObject)
+// Function for parsing Date object into custom string containing the day
+function dayFromDateObject(dateObject)
 {
-	var stringToReturn = "";
-	stringToReturn = dateObject.getFullYear + "/"
-//	stringToReturn += dateObject.getMonth + "/"
-//	stringToReturn += dateObject.getDate + " "
+	var stringToReturn = dateObject.getFullYear() + "/" +
+	dateObject.getMonth() + "/" +
+	dateObject.getDate();
+	return stringToReturn;
+}
+
+// Function for parsing Date object into custom string containing time
+function timeFromDateObject(dateObject)
+{
+	var stringToReturn = dateObject.getHours() + ":" +
+	dateObject.getMinutes() + ":" +
+	dateObject.getSeconds();
 	return stringToReturn;
 }
