@@ -1,4 +1,4 @@
-// Variable for google map
+// Variable for google map instance
 var map;
 // Variables for graphical objects to be placed on map
 var markers = [];
@@ -19,6 +19,7 @@ function initMap() {
 
 // Master function for displaying appropriate graphical objects on map
 function masterDisplayUpdate() {
+	// Remove current graphics and then reapply new graphics
 	removeAllGraphics();
 	if($('#markerCheckbox').is(':checked'))
 	{
@@ -44,11 +45,14 @@ function removeAllGraphics() {
 	{
 		markers[i].setMap(null);
 	}
+	// First all markers removed from map and then deleted. Easily possible
+	// to reattain markers by using quakeArray and createMarkers
 	markers = [];
 	for(var i = 0; i < circles.length; i++)
 	{
 		circles[i].setMap(null);
 	}
+	// Heatmap is all in one object, no need for loop.
 	if(heatmapping.map !== undefined)
 	{
 		heatmapping.setMap(null);
@@ -61,9 +65,10 @@ function evaluateQuakes(arrayOfQuakes) {
 	var tmpQuakeArray = [];
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
+		// Time divided by 1000 to receive time in seconds, not milliseconds
 		var quaketime = arrayOfQuakes[i].time / 1000;
-		if(dateValid(quaketime, timeSliderData.from, timeSliderData.to) &&
-		strengthValid(arrayOfQuakes[i].strength, richterSliderData.from, richterSliderData.to))
+		if(checkWithinBounds(quaketime, timeSliderData.from, timeSliderData.to) &&
+		checkWithinBounds(arrayOfQuakes[i].strength, richterSliderData.from, richterSliderData.to))
 		{
 			tmpQuakeArray.push(arrayOfQuakes[i]);
 			console.log('Quake to display added');
@@ -72,19 +77,9 @@ function evaluateQuakes(arrayOfQuakes) {
 	quakesToDisplay = tmpQuakeArray;
 }
 
-
-// Function to see if Date object falls within bounds of user parameters
-function dateValid(dateOfObject, minDate, maxDate) {
-	if( (minDate < dateOfObject) && (dateOfObject < maxDate) )
-	{
-		return true;
-	}
-	return false;
-}
-
-// Function to see if quake strength falls within bounds of user parameters
-function strengthValid(quakeStrength, minStrength, maxStrength) {
-	if((minStrength < quakeStrength) && (quakeStrength < maxStrength))
+// Function to see if value falls within bounds.
+function checkWithinBounds(argument, minValue, maxValue) {
+	if((minValue < argument) && (argument < maxValue) )
 	{
 		return true;
 	}
@@ -92,8 +87,8 @@ function strengthValid(quakeStrength, minStrength, maxStrength) {
 }
 
 // Function for creating array of quake objects with data
-// array from JSON array. Stores them in array named quakearray
-// in file frontjavascript.js
+// array from JSON object. Stores them in global variable named
+// quakearray as an array in file frontjavascript.js
 function objectToQuakeArray(rawDataArray)
 {
 	for(var i = 0; i < rawDataArray.length; i++) {
@@ -116,11 +111,13 @@ function createMarkers(arrayOfQuakes) {
 			position : {lat: arrayOfQuakes[i].lat, lng: arrayOfQuakes[i].lng},
 			title: 'marker number ' + i
 		});
+		// Inserts corresponding quake object into marker itself
 		marker['quake'] = arrayOfQuakes[i];
 		tmpArray.push(marker);
 		console.log("Marker created");
 	}
 	markers = tmpArray;
+	// Attaches info windows to markers
 	setMarkerInfo(markers);
 };
 
@@ -148,45 +145,45 @@ function setMarkerInfo(markerArray) {
 				+ '</p>'
 			'</div>';
 
-		// Creates info window
+		// Info window constructor
 		var infowindow = new google.maps.InfoWindow({
 			content: contentString
 		});
-
 		markerArray[i].infowindow = infowindow;
 		attachMarkerListeners(i);
 	}
 }
 
 // Function for adding event listeners to markers so they display
-// info windows when clicked
+// info windows when clicked.
 function attachMarkerListeners(i) {
 	google.maps.event.addListener(markers[i], 'click', function() {
 		if(currentInfoWindow.content !== undefined)
 		{
-			currentInfoWindow.close();	
+			currentInfoWindow.close();
 		}
 		this.infowindow.open(map, this);
 		currentInfoWindow = this.infowindow;
 	});
 }
 
-// Function for opening info window when marker is clicked
+// Function for opening info window when marker is clicked.
 function markerClicked() {
 	return function() {
 		markers[i].info.open(map, markers[i]);
 	}
 }
 
-// Function for creating circles
+// Function for creating circular graphics objects for the map.
 function createCircles(arrayOfQuakes) {
 	var tmpArray = [];
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
-		// Sets opacity with respect to Richter magnitude
+		// Sets opacity with respect to Richter magnitude.
+		// Stronger quakes result in less transparent circles.
 		var opacity = arrayOfQuakes[i].strength / 10.0;
 		if(opacity > 1.0) {opacity = 1.0}
-		// Places overlay circles
+		// Constructor for circles.
 		var circle = new google.maps.Circle({
 			strokeColor: '#FF7700',
 			strokeOpacity: opacity,
@@ -217,9 +214,9 @@ function createHeatmapPoints(arrayOfQuakes) {
 	var heatmapData = [];
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
-		// LatLng object with coordinates to be placed in the weighted points
+		// LatLng object with coordinates of earthquake.
 		var latLng = new google.maps.LatLng(arrayOfQuakes[i].lat, arrayOfQuakes[i].lng)
-		// Object containing heatmap data with radius in accordance with magnitude
+		// Size and weight of heatpoint increase with earthquake magnitude.
 		tmpWeight = arrayOfQuakes[i].strength / 15;
 		var weightedLocation = {
 			location: latLng,
