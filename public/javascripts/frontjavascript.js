@@ -92,7 +92,7 @@ $(document).ready(function() {
 function egillAdFikta(response) {
   // Feeds data from apis.is into array of quake objects
   var rawDataArray = response.info;
-  console.log(rawDataArray);
+  console.log("Rawdata is", rawDataArray);
   objectToQuakeArray(rawDataArray);
   console.log(quakeArray);
   createMarkers(quakeArray);
