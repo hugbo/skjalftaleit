@@ -9,23 +9,29 @@ html(lang='en')
     link(rel='stylesheet', href='../bower_components/ion.rangeSlider/css/normalize.css')
     link(rel='stylesheet', href='../bower_components/ion.rangeSlider/css/ion.rangeSlider.css')
     link(rel='stylesheet', href='../bower_components/ion.rangeSlider/css/ion.rangeslider.skinHTML5.css')
+    link(rel='stylesheet', href='../bower_components/stickyNavbar.js/animate.min.css')
     
     link(href='https://fonts.googleapis.com/css?family=Oswald', rel='stylesheet', type='text/css')
   body
+    .bg1
+      
+      include ./indexScreen.jade
+      
+      include ./navBar.jade
     
-    include ./indexScreen.jade
-    
-    .container 
-      .col-md-12
-        .row
-          .content
-            // Section containing navigation menu and banner
-            // include ./bannerAndNav.jade
-            .mapSection
-              include ./map.jade
-            
-            .aboutSection
-              include ./about.jade
+    .bg2
+      .container 
+        .col-md-12
+          .row
+            .content
+              // Section containing navigation menu and banner
+              // include ./bannerAndNav.jade
+              #mapSection.scrollto
+                include ./map.jade
+              
+              #aboutSection.scrollto
+                include ./about.jade
+              #aboutScroll.scrollto
             
        
     // Adds footer containing CDN connections and local scripts      

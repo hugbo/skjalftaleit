@@ -13,24 +13,88 @@ body {
   margin: 0;
   min-height: 100%;
   width: 100%;
-  background: url('../../img/seljalandsfoss.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   font-size: 14px;
   font-family: 'Oswald', sans-serif;
 }
 
 /*
-//==============
-// GENERIC STUFF
-//==============
+//===========
+// BACKGROUND
+//===========
 */
 
-a {
-  color: #00B7FF;
-  font-family: 'Oswald', sans-serif;
+.bg1 {
+  height: 100vh;
+  background: url('../../img/seljalandsfoss.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.bg2 {
+  height: 100%;
+  background: url('../../img/skogafoss.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*
+//===============
+// NAVIGATION BAR
+//===============
+*/
+
+#header {
+  width: 100%;
+  display: block;
+  padding: 20px;
+  position: relative;
+  background: lightgray;
+  height: 10vh;
+  top: 0px;
+}
+
+#nav {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 3em;
+}
+
+#nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-image: none;
+}
+
+#nav li {
+  margin-right: 0;
+  display: inline;
+}
+
+#nav a {
+  text-decoration: none;
+  margin: 0;
+  padding: 10px 15px 10px 15px;
+  color: darkslategray;
+  font-family: 'Oswald', Helvetica, sans-serif; 
+}
+
+#nav a:hover {
+  text-decoration: underline;
+}
+
+.active {
+  color: #fff !important;
+  text-decoration: underline !important;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 /*
@@ -38,18 +102,6 @@ a {
 // LAYOUT
 //=======
 */
-
-.container {
-  height: 100%;
-}
-
-.col-md-12 {
-  height: 100%;
-}
-
-.row {
-  height: 100%;
-}
 
 .content {
   height: 100%;
@@ -65,7 +117,7 @@ a {
 /* INDEX SCREEN */
 
 .siteTitleAlignHor {
-  height: 100vh;
+  height: 90vh;
   min-width: 100%;
   position: relative;
   
@@ -80,18 +132,29 @@ a {
   color: whitesmoke;
   font-size: 2em;
   font-family: 'Oswald', Helvetica, sans-serif;
-  text-shadow: 3px 3px darkgray;
 }
 
 .siteTitle {
   border: 10px solid whitesmoke;
   display: inline-block;
   padding: 50px;
-  background: rgba(200,200,200,0.4);
+  background: rgba(200,200,200,0.5);
+}
+
+.siteTitle h1 {
+  text-shadow: 3px 3px darkgray;
+}
+
+.siteTitle p {
+  text-shadow: 2px 2px darkgray;
 }
 
 
 /* MAP */
+.mapViewport {
+  height: 100vh;
+}
+
 .mapTitle {
   padding: 1.5em;
   
@@ -100,8 +163,8 @@ a {
   font-size: 1.5em;
 }
 
-.mapSection {
-  margin-bottom: 25vh;
+#mapSection {
+  margin-bottom: 10vh;
 }
 
 #map {
@@ -140,12 +203,13 @@ td:hover {
 }
 
 /* ABOUT US */
-.aboutSection {
+#aboutSection {
   padding: 10px;
+  height: 100vh;
 }
 
-.aboutSection > h4 {
-  padding: 1.5em;
+#aboutSection h4 {
+  padding: 20px;
   
   text-align: center;
   font-family: 'Oswald', Helvetica, sans-serif;
