@@ -15,6 +15,23 @@ function initMap() {
 	});
 };
 
+// Master function for displaying appropriate graphical objects on map
+function masterDisplayUpdate() {
+	setMapOnAll(null);
+	if($('#markerCheckbox').is(':checked'))
+	{
+		placeMarkers(markers);
+	}
+	if($('#circleCheckbox').is(':checked'))
+	{
+		placeCircles(circles);
+	}
+	if($('#heatCheckbox').is(':checked'))
+	{
+		placeHeatmapPoints(heatmapping);
+	}
+	console.log("Master display complete")
+}
 
 // Function for evaluating which quakes should be displayed
 // based on user parameters.
@@ -28,7 +45,7 @@ function evaluateQuakes(quakeArray) {
 			tmpQuakeArray.push(quakeArray[i]);
 		}
 	}
-	
+	quakesToDisplay = tmpQuakeArray;
 }
 
 
@@ -71,6 +88,7 @@ function objectToQuakeArray(rawDataArray)
 
 // Function for creating markers and placing in array
 function createMarkers(arrayOfQuakes) {
+	var tmpArray = [];
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
 		var marker = new google.maps.Marker({
@@ -78,9 +96,10 @@ function createMarkers(arrayOfQuakes) {
 			title: 'marker number ' + i
 		});
 		marker['quake'] = arrayOfQuakes[i];
-		markers.push(marker);
+		tmpArray.push(marker);
 		console.log("Marker created");
 	}
+	markers = tmpArray;
 };
 
 // Function for placing marker on map with given data
@@ -134,6 +153,7 @@ function markerClicked() {
 
 // Function for creating circles
 function createCircles(arrayOfQuakes) {
+	var tmpArray = [];
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
 		// Sets opacity with respect to Richter magnitude
@@ -150,9 +170,10 @@ function createCircles(arrayOfQuakes) {
 			center: {lat: arrayOfQuakes[i].lat, lng: arrayOfQuakes[i].lng},
 			radius: arrayOfQuakes[i].strength * 10000
 		});
-		circles.push(circle);
+		tmpArray.push(circle);
 		console.log("Circle created");
 	}
+	circles = tmpArray;
 };
 
 // Function for placing circle on map with given data

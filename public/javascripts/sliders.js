@@ -20,6 +20,8 @@ $(document).ready(function() {
 			drag_interval: true,
 			onFinish: function(data) {
 				richterSliderData = data;
+				evaluateQuakes(quakeArray);
+				masterDisplayUpdate();
 				console.log(data);
 			},
 			onStart: function(data) {
@@ -51,6 +53,8 @@ $(document).ready(function() {
 			},
 			onFinish: function(data) {
 				timeSliderData = data;
+				evaluateQuakes(quakeArray);
+				masterDisplayUpdate();
 				console.log(data);
 			},
 			onFinish: function(data) {
@@ -59,15 +63,15 @@ $(document).ready(function() {
 		});
 
 		$('#markerCheckbox').click(function() {
-			console.log("Marker box clicked");
+			masterDisplayUpdate();
 		});
 
 		$('#circleCheckbox').click(function() {
-			console.log("#circleCheckbox");
+			masterDisplayUpdate();
 		});
 
 		$('#heatCheckbox').click(function() {
-
+			masterDisplayUpdate();
 		})
 	});
 });
