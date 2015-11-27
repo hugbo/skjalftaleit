@@ -15,17 +15,22 @@ function initMap() {
 	});
 };
 
-/*
+
 // Function for evaluating which quakes should be displayed
 // based on user parameters.
-function evaluateQuakes() {
+function evaluateQuakes(quakeArray) {
 	var tmpQuakeArray = [];
 	for(var i = 0; i < quakeArray.length; i++)
 	{
-		if()
+		if(dateValid(quakeArray[i].time, timeSliderData.min, timeSliderData.max) &&
+		strengthValid(quakeArray[i].strength, richterSliderData.min, richterSliderData.max))
+		{
+			tmpQuakeArray.push(quakeArray[i]);
+		}
 	}
+	
 }
-*/
+
 
 // Function to see if Date object falls within bounds of user parameters
 function dateValid(dateObject, minDateObject, maxDateObject)
