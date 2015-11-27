@@ -1,9 +1,11 @@
 // Variable for google map
 var map;
-// Variables for earthquake display on map
+// Variables for graphical objects to be placed on map
 var markers = [];
 var circles = [];
 var heatmapping = {};
+// Variable for storing current info window that is open
+var currentInfoWindow = {};
 
 // Function for initializing map
 function initMap() {
@@ -42,7 +44,6 @@ function removeAllGraphics() {
 	{
 		markers[i].setMap(null);
 	}
-
 	markers = [];
 	for(var i = 0; i < circles.length; i++)
 	{
@@ -160,8 +161,13 @@ function setMarkerInfo(markerArray) {
 // Function for adding event listeners to markers so they display
 // info windows when clicked
 function attachMarkerListeners(i) {
-	google.maps.event.addListener(markers[i], 'click', function(){
+	google.maps.event.addListener(markers[i], 'click', function() {
+		if(currentInfoWindow.content !== undefined)
+		{
+			currentInfoWindow.close();	
+		}
 		this.infowindow.open(map, this);
+		currentInfoWindow = this.infowindow;
 	});
 }
 

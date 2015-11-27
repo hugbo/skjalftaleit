@@ -74,5 +74,7 @@ $(document).ready(function() {
 		$('#heatCheckbox').click(function() {
 			masterDisplayUpdate();
 		})
+
+		$('#markerCheckbox').prop('checked',true);
 	});
 });
