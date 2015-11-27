@@ -4,8 +4,8 @@ var quakeArray = [];
 var quakesToDisplay = [];
 // Current date, created when webpage is run
 var d = new Date();
-var startTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate()-2);
-var endTime = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+(d.getDate());
+var startTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() - 2);
+var endTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate());
 var minmagnitude = 0;
 var maxmagnitude = 10;
 
@@ -19,70 +19,51 @@ $(document).ready(function() {
   getStripedData();
 });
 
-  // Receive data for earthquakes and parse it
-  function getData(startTime, endTime, minmagnitude, maxmagnitude){
+// Receive data for earthquakes and parse it
+function getData(startTime, endTime, minmagnitude, maxmagnitude) {
   console.log("Getting data...");
   //Sækja gögn af Apis.is
   $.ajax({
-  'url': 'https://apis.is/earthquake/is',
-  type: 'GET',
-  contentType: 'application/json',
-  dataType: 'JSON',
-   success: function(response) {
-    //console.log(response);
-    postData(response);
-    //egillAdFikta(response);
-    }
-  });
-
-
-  /*
-  //Sækja gögn af USGS
-  $.ajax({
-    'url': 'http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime='
-    +startTime+'&endtime='+endTime+'&minmagnitude='+minmagnitude+'&maxmagnitude='
-    +maxmagnitude,
+    'url': 'https://apis.is/earthquake/is',
     type: 'GET',
-    contentType: 'application/jsonp',
-    dataType: 'JSONP',
+    contentType: 'application/json',
+    dataType: 'JSON',
     success: function(response) {
-      console.log(response);
-    },
-    error: function() {
-      console.log("USGS no work man :()");
+      //console.log(response);
+      postData(response);
+      //egillAdFikta(response);
     }
   });
-  */
-  }
+}
 
-  // Post earthquake data onto server
-  function postData(quakeData) {
+// Post earthquake data onto server
+function postData(quakeData) {
   $.ajax({
     url: '/data',
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify(quakeData),
     dataType: 'JSON'
-    });
-  }
+  });
+}
 
-  function getStripedData(){
-    console.log("getStripedData activated");
-    $.ajax({
-      url: '/data',
-      type: 'GET',
-      contentType: 'application/json',
-      dataType: 'JSON',
-      success: function(response){
-        console.log("Virkar!!!!");
-        console.log(response);
-        egillAdFikta(response);
-      },
-      error: function(err){
-        console.error("oh noes "+err);
-      }
-    });
-  }
+function getStripedData() {
+  console.log("getStripedData activated");
+  $.ajax({
+    url: '/data',
+    type: 'GET',
+    contentType: 'application/json',
+    dataType: 'JSON',
+    success: function(response) {
+      console.log("Virkar!!!!");
+      console.log(response);
+      egillAdFikta(response);
+    },
+    error: function(err) {
+      console.error("oh noes " + err);
+    }
+  });
+}
 
 /*
   Notkun: egillAdFikta(response);
