@@ -25,10 +25,7 @@ function getStripedData() {
     success: function(response) {
       console.log("Virkar!!!!");
       console.log(response);
-<<<<<<< HEAD
       egillAdFikta(response);
-=======
->>>>>>> origin/master
     },
     error: function(err) {
       console.error("oh noes " + err);
@@ -43,7 +40,6 @@ function getStripedData() {
 */
 function egillAdFikta(response) {
   // Feeds data from apis.is into array of quake objects
-<<<<<<< HEAD
   var rawDataArray = response.info;
   //console.log("Rawdata is", rawDataArray);
   // Hard set graphical objects
@@ -59,10 +55,8 @@ function egillAdFikta(response) {
   placeCircles(circles);
   */
 
-=======
   var rawDataArray = response.results;
   console.log("Rawdata is", rawDataArray);
->>>>>>> origin/master
   objectToQuakeArray(rawDataArray);
   evaluateQuakes(quakeArray);
   masterDisplayUpdate();
