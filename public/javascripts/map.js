@@ -7,7 +7,7 @@ var heatmapping = {};
 
 // Function for initializing map
 function initMap() {
-	console.log('er inní initMap');
+	console.log('Map Initialized');
 	map = new google.maps.Map(document.getElementById('map'), {
 		// Initialized with focus on Reykjavik coordinates
 		center: {lat: 64.133, lng: -21.933},
@@ -17,7 +17,7 @@ function initMap() {
 
 // Master function for displaying appropriate graphical objects on map
 function masterDisplayUpdate() {
-	setMapOnAll(null);
+	// map.clearOverlays();
 	if($('#markerCheckbox').is(':checked'))
 	{
 		placeMarkers(markers);
@@ -39,10 +39,11 @@ function evaluateQuakes(arrayOfQuakes) {
 	var tmpQuakeArray = [];
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
-		if(dateValid(arrayOfQuakes[i].time, timeSliderData.min, timeSliderData.max) &&
-		strengthValid(arrayOfQuakes[i].strength, richterSliderData.min, richterSliderData.max))
+		if(dateValid(arrayOfQuakes[i].time, timeSliderData.from, timeSliderData.to) &&
+		strengthValid(arrayOfQuakes[i].strength, richterSliderData.from, richterSliderData.to))
 		{
 			tmpQuakeArray.push(arrayOfQuakes[i]);
+			console.log('Quake to display added');
 		}
 	}
 	quakesToDisplay = tmpQuakeArray;
@@ -50,12 +51,13 @@ function evaluateQuakes(arrayOfQuakes) {
 
 
 // Function to see if Date object falls within bounds of user parameters
-function dateValid(dateObject, minDateObject, maxDateObject) {
+function dateValid(dateObject, minDate, maxDate) {
 	var dateOfObject = dateObject.getDate();
-	if( (minDateObject.getDate() < dateOfObject) && (dateOfObject < maxDateObject.getDate()) )
+	if( (minDate < dateOfObject) && (dateOfObject < maxDateObject) )
 	{
 		return true;
 	}
+	console.log("dateValid false");
 	return false;
 }
 
@@ -65,6 +67,7 @@ function strengthValid(quakeStrength, minStrength, maxStrength) {
 	{
 		return true;
 	}
+	console.log("strengthValid false");
 	return false;
 }
 
@@ -74,13 +77,12 @@ function strengthValid(quakeStrength, minStrength, maxStrength) {
 function objectToQuakeArray(rawDataArray)
 {
 	for(var i = 0; i < rawDataArray.length; i++) {
-		var latitude = rawDataArray[i].results.latitude;
-		var longitude = rawDataArray[i].results.longitude;
-		var strength = rawDataArray[i].results.size;
-		var timestamp = new Date(rawDataArray[i].results.timestamp);
+		var latitude = rawDataArray[i].latitude;
+		var longitude = rawDataArray[i].longitude;
+		var strength = rawDataArray[i].size;
+		var timestamp = new Date(rawDataArray[i].timestamp);
 		var tmpQuake = new quake(latitude, longitude, strength, timestamp)
 		quakeArray.push(tmpQuake);
-		console.log(tmpQuake);
 		console.log("Quake added");
 	}
 }
@@ -222,6 +224,7 @@ function quake(latitude, longitude, richter, timestamp) {
 };
 
 // Function for parsing Date object into custom string containing the day
+// in formar YYYY/MM/DD
 function dayFromDateObject(dateObject)
 {
 	var stringToReturn = dateObject.getFullYear() + "/" +
@@ -231,6 +234,7 @@ function dayFromDateObject(dateObject)
 }
 
 // Function for parsing Date object into custom string containing time
+// in format HH:MM:SS
 function timeFromDateObject(dateObject)
 {
 	var stringToReturn = dateObject.getHours() + ":" +

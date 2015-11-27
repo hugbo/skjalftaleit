@@ -26,7 +26,7 @@ $(document).ready(function() {
 			},
 			onStart: function(data) {
 				richterSliderData = data;
-				console.log("Slider intialized and data moved");
+				console.log("Magnitude slider data moved");
 			}
 
 		});
@@ -57,8 +57,9 @@ $(document).ready(function() {
 				masterDisplayUpdate();
 				console.log(data);
 			},
-			onFinish: function(data) {
+			onStart: function(data) {
 				timeSliderData = data;
+				console.log("Time slider data moved");
 			}
 		});
 

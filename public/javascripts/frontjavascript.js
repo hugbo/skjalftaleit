@@ -14,7 +14,7 @@ var maxmagnitude = 10;
 var tmpData = {};
 
 $(document).ready(function() {
-  console.log("Stuff's good, frontscript active");
+  console.log("Frontscript.js active");
   // Remove navigation buttons from banner
   $('.carousel-indicators ').css("display", "none");
   setInterval(getData(startTime, endTime, minmagnitude, maxmagnitude), 5000);
@@ -31,10 +31,10 @@ function getData(startTime, endTime, minmagnitude, maxmagnitude) {
     contentType: 'application/json',
     dataType: 'JSON',
     success: function(response) {
-      //console.log(response);
+      console.log(response);
       postData(response);
       masterData = response;
-      //egillAdFikta(response);
+      egillAdFikta(response);
     }
   });
 }
@@ -75,7 +75,7 @@ function getStripedData() {
 */
 function egillAdFikta(response) {
   // Feeds data from apis.is into array of quake objects
-  var rawDataArray = response.info;
+  var rawDataArray = response.results;
   console.log("Rawdata is", rawDataArray);
   // Hard set graphical objects
   /*
@@ -89,6 +89,7 @@ function egillAdFikta(response) {
   placeMarkers(markers);
   placeCircles(circles);
   */
+
   objectToQuakeArray(rawDataArray);
   evaluateQuakes(quakeArray);
   masterDisplayUpdate();
