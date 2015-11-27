@@ -16,7 +16,7 @@ $(document).ready(function() {
   // Remove navigation buttons from banner
   $('.carousel-indicators ').css("display", "none");
   setInterval(getData(startTime, endTime, minmagnitude, maxmagnitude), 5000);
-  //getStripedData();
+  getStripedData();
 });
 
   // Receive data for earthquakes and parse it
@@ -29,9 +29,9 @@ $(document).ready(function() {
   contentType: 'application/json',
   dataType: 'JSON',
    success: function(response) {
-    console.log(response);
+    //console.log(response);
     postData(response);
-    egillAdFikta(response);
+    //egillAdFikta(response);
     }
   });
 
@@ -79,7 +79,7 @@ $(document).ready(function() {
         egillAdFikta(response);
       },
       error: function(err){
-        console.error("oh noes"+err);
+        console.error("oh noes "+err);
       }
     });
   }
@@ -91,7 +91,7 @@ $(document).ready(function() {
 */
 function egillAdFikta(response) {
   // Feeds data from apis.is into array of quake objects
-  var rawDataArray = response.results;
+  var rawDataArray = response.info;
   console.log(rawDataArray);
   objectToQuakeArray(rawDataArray);
   console.log(quakeArray);

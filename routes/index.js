@@ -36,16 +36,17 @@ router.post('/map', function(req, res, next) {
 
 
 router.get('/data', function(req, res) {
-  //res.send({info: updateDB.getAllData()});
+  updateDB.getAllData(null, function(data){
+    var info = {'info': data.rows}
+    res.send(info);
+  });
 });
 
 router.post('/data', function(req, res) {
   var dataArray = req.body.results;
   updateDB.updateTables(dataArray);
-  updateDB.getAllData();
   res.redirect('/');
 });
-
 
 
 module.exports = router;
