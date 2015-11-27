@@ -5,11 +5,15 @@ var updateDB = require('../lib/StoreData');
 
 /* GET and POST Home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'The Amateur Geologist Federation' });
+  res.render('index', {
+    title: 'The Amateur Geologist Federation'
+  });
 });
 
 router.post('/', function(req, res, next) {
-  res.render('index', {title: 'The Amateur Geologist Federation' });
+  res.render('index', {
+    title: 'The Amateur Geologist Federation'
+  });
 });
 
 /* GET and POST About page. */
@@ -32,15 +36,16 @@ router.post('/map', function(req, res, next) {
 
 
 router.get('/data', function(req, res) {
-  res.render('index', {title: 'The Amateur Geologist Federation' });
+  //res.send({info: updateDB.getAllData()});
 });
 
-router.post('/data', function(req, res){
+router.post('/data', function(req, res) {
   var dataArray = req.body.results;
   updateDB.updateTables(dataArray);
   updateDB.getAllData();
   res.redirect('/');
 });
+
 
 
 module.exports = router;

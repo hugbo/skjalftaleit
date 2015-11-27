@@ -16,10 +16,12 @@ $(document).ready(function() {
   // Remove navigation buttons from banner
   $('.carousel-indicators ').css("display", "none");
   setInterval(getData(startTime, endTime, minmagnitude, maxmagnitude), 5000);
+  //getStripedData();
 });
 
   // Receive data for earthquakes and parse it
   function getData(startTime, endTime, minmagnitude, maxmagnitude){
+  console.log("Getting data...");
   //Sækja gögn af Apis.is
   $.ajax({
   'url': 'https://apis.is/earthquake/is',
@@ -27,7 +29,6 @@ $(document).ready(function() {
   contentType: 'application/json',
   dataType: 'JSON',
    success: function(response) {
-    tmpData = response;
     console.log(response);
     postData(response);
     egillAdFikta(response);
@@ -35,7 +36,7 @@ $(document).ready(function() {
   });
 
 
-
+  /*
   //Sækja gögn af USGS
   $.ajax({
     'url': 'http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime='
@@ -51,7 +52,7 @@ $(document).ready(function() {
       console.log("USGS no work man :()");
     }
   });
-
+  */
   }
 
   // Post earthquake data onto server
@@ -62,6 +63,24 @@ $(document).ready(function() {
     contentType: 'application/json',
     data: JSON.stringify(quakeData),
     dataType: 'JSON'
+    });
+  }
+
+  function getStripedData(){
+    console.log("getStripedData activated");
+    $.ajax({
+      url: '/data',
+      type: 'GET',
+      contentType: 'application/json',
+      dataType: 'JSON',
+      success: function(response){
+        console.log("Virkar!!!!");
+        console.log(response);
+        egillAdFikta(response);
+      },
+      error: function(err){
+        console.error("oh noes"+err);
+      }
     });
   }
 
