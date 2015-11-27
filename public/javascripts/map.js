@@ -77,13 +77,15 @@ function strengthValid(quakeStrength, minStrength, maxStrength) {
 // in file frontjavascript.js
 function objectToQuakeArray(rawDataArray)
 {
+	console.log(rawDataArray);
 	for(var i = 0; i < rawDataArray.length; i++) {
-		var latitude = rawDataArray[i].latitude;
-		var longitude = rawDataArray[i].longitude;
-		var strength = rawDataArray[i].size;
-		var timestamp = new Date(rawDataArray[i].timestamp);
+		var latitude = rawDataArray[i].results.latitude;
+		var longitude = rawDataArray[i].results.longitude;
+		var strength = rawDataArray[i].results.size;
+		var timestamp = new Date(rawDataArray[i].results.timestamp);
 		var tmpQuake = new quake(latitude, longitude, strength, timestamp)
 		quakeArray.push(tmpQuake);
+		console.log(tmpQuake);
 		console.log("Quake added");
 	}
 }

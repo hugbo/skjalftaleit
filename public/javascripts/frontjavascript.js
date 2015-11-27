@@ -6,49 +6,14 @@ var quakeArray = [];
 var quakesToDisplay = [];
 // Current date, created when webpage is run
 var d = new Date();
-var startTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() - 2);
-var endTime = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate());
-var minmagnitude = 0;
-var maxmagnitude = 10;
-
 var tmpData = {};
 
 $(document).ready(function() {
   console.log("Frontscript.js active");
   // Remove navigation buttons from banner
   $('.carousel-indicators ').css("display", "none");
-  setInterval(getData(startTime, endTime, minmagnitude, maxmagnitude), 5000);
-  getStripedData();
+  setInterval(getStripedData(),5000);
 });
-
-// Receive data for earthquakes and parse it
-function getData(startTime, endTime, minmagnitude, maxmagnitude) {
-  console.log("Getting data...");
-  //Sækja gögn af Apis.is
-  $.ajax({
-    'url': 'https://apis.is/earthquake/is',
-    type: 'GET',
-    contentType: 'application/json',
-    dataType: 'JSON',
-    success: function(response) {
-      console.log(response);
-      postData(response);
-      masterData = response;
-      egillAdFikta(response);
-    }
-  });
-}
-
-// Post earthquake data onto server
-function postData(quakeData) {
-  $.ajax({
-    url: '/data',
-    type: 'POST',
-    contentType: 'application/json',
-    data: JSON.stringify(quakeData),
-    dataType: 'JSON'
-  });
-}
 
 function getStripedData() {
   console.log("getStripedData activated");
@@ -60,7 +25,7 @@ function getStripedData() {
     success: function(response) {
       console.log("Virkar!!!!");
       console.log(response);
-      // egillAdFikta(response);
+      egillAdFikta(response);
     },
     error: function(err) {
       console.error("oh noes " + err);
@@ -75,8 +40,8 @@ function getStripedData() {
 */
 function egillAdFikta(response) {
   // Feeds data from apis.is into array of quake objects
-  var rawDataArray = response.results;
-  console.log("Rawdata is", rawDataArray);
+  var rawDataArray = response.info;
+  //console.log("Rawdata is", rawDataArray);
   // Hard set graphical objects
   /*
   objectToQuakeArray(rawDataArray);
