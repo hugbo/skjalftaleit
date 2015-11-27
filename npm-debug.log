@@ -1,0 +1,148 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.2
+4 verbose readDependencies loading dependencies from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\package.json
+5 warn package.json Dependency 'pg' exists in both dependencies and devDependencies, using 'pg@^4.4.3' from dependencies
+6 verbose install where, deps [ 'C:\\Users\\egill\\Documents\\Haskolagogn\\LocalThird\\Vefforritun\\skjalftaleit',
+6 verbose install   [ 'body-parser',
+6 verbose install     'bower',
+6 verbose install     'cookie-parser',
+6 verbose install     'debug',
+6 verbose install     'dotenv',
+6 verbose install     'express',
+6 verbose install     'express-session',
+6 verbose install     'jade',
+6 verbose install     'morgan',
+6 verbose install     'pg',
+6 verbose install     'serve-favicon',
+6 verbose install     'browser-sync',
+6 verbose install     'chai',
+6 verbose install     'gulp',
+6 verbose install     'gulp-mocha',
+6 verbose install     'gulp-nodemon',
+6 verbose install     'gulp-sass' ] ]
+7 verbose install where, peers [ 'C:\\Users\\egill\\Documents\\Haskolagogn\\LocalThird\\Vefforritun\\skjalftaleit',
+7 verbose install   [] ]
+8 verbose installManyTop reading for lifecycle C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\package.json
+9 info preinstall verkefni7@0.0.0
+10 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\body-parser\package.json
+11 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\bower\package.json
+12 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\browser-sync\package.json
+13 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\chai\package.json
+14 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\cookie-parser\package.json
+15 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\debug\package.json
+16 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\dotenv\package.json
+17 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\express\package.json
+18 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\express-session\package.json
+19 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\gulp\package.json
+20 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\gulp-mocha\package.json
+21 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\gulp-nodemon\package.json
+22 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\gulp-sass\package.json
+23 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\jade\package.json
+24 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\morgan\package.json
+25 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\pg\package.json
+26 verbose installManyTop reading scoped package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\serve-favicon\package.json
+27 info package.json bower@1.4.2 No license field.
+28 verbose readDependencies loading dependencies from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\package.json
+29 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\body-parser\package.json
+30 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\bower\package.json
+31 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\browser-sync\package.json
+32 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\chai\package.json
+33 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\cookie-parser\package.json
+34 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\debug\package.json
+35 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\dotenv\package.json
+36 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\express\package.json
+37 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\express-session\package.json
+38 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\gulp\package.json
+39 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\gulp-mocha\package.json
+40 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\gulp-nodemon\package.json
+41 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\gulp-sass\package.json
+42 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\jade\package.json
+43 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\morgan\package.json
+44 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\pg\package.json
+45 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\serve-favicon\package.json
+46 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\.bin\bower\package.json
+47 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\.bin\bower.cmd\package.json
+48 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\.bin\browser-sync\package.json
+49 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\.bin\browser-sync.cmd\package.json
+50 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\.bin\gulp\package.json
+51 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\.bin\gulp.cmd\package.json
+52 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\.bin\jade\package.json
+53 verbose targetResolver reading package data from C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit\node_modules\.bin\jade.cmd\package.json
+54 verbose already installed skipping browser-sync@^2.9.11 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+55 verbose already installed skipping chai@^3.4.0 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+56 verbose already installed skipping gulp@^3.9.0 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+57 verbose already installed skipping gulp-mocha@^2.1.3 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+58 verbose already installed skipping gulp-nodemon@^2.0.4 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+59 verbose already installed skipping gulp-sass@^2.0.4 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+60 verbose already installed skipping body-parser@~1.13.2 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+61 verbose already installed skipping bower@^1.4.2 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+62 verbose already installed skipping cookie-parser@~1.3.5 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+63 verbose already installed skipping debug@~2.2.0 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+64 verbose already installed skipping dotenv@^1.2.0 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+65 verbose already installed skipping express@~4.13.1 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+66 verbose already installed skipping express-session@^1.12.1 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+67 verbose already installed skipping jade@~1.11.0 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+68 verbose already installed skipping morgan@~1.6.1 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+69 verbose already installed skipping pg@^4.4.3 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+70 verbose already installed skipping serve-favicon@~2.3.0 C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+71 silly install resolved []
+72 info build C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+73 info linkStuff verkefni7@0.0.0
+74 silly linkStuff verkefni7@0.0.0 has C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun as its parent node_modules
+75 verbose linkBins verkefni7@0.0.0
+76 verbose linkMans verkefni7@0.0.0
+77 verbose rebuildBundles verkefni7@0.0.0
+78 verbose rebuildBundles [ '.bin',
+78 verbose rebuildBundles   'body-parser',
+78 verbose rebuildBundles   'bower',
+78 verbose rebuildBundles   'browser-sync',
+78 verbose rebuildBundles   'chai',
+78 verbose rebuildBundles   'cookie-parser',
+78 verbose rebuildBundles   'debug',
+78 verbose rebuildBundles   'dotenv',
+78 verbose rebuildBundles   'express',
+78 verbose rebuildBundles   'express-session',
+78 verbose rebuildBundles   'gulp',
+78 verbose rebuildBundles   'gulp-mocha',
+78 verbose rebuildBundles   'gulp-nodemon',
+78 verbose rebuildBundles   'gulp-sass',
+78 verbose rebuildBundles   'jade',
+78 verbose rebuildBundles   'morgan',
+78 verbose rebuildBundles   'pg',
+78 verbose rebuildBundles   'serve-favicon' ]
+79 info install verkefni7@0.0.0
+80 info postinstall verkefni7@0.0.0
+81 verbose unsafe-perm in lifecycle true
+82 info verkefni7@0.0.0 Failed to exec postinstall script
+83 verbose stack Error: verkefni7@0.0.0 postinstall: `./node_modules/bower/bin/bower install`
+83 verbose stack Exit status 1
+83 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:214:16)
+83 verbose stack     at emitTwo (events.js:87:13)
+83 verbose stack     at EventEmitter.emit (events.js:172:7)
+83 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:24:14)
+83 verbose stack     at emitTwo (events.js:87:13)
+83 verbose stack     at ChildProcess.emit (events.js:172:7)
+83 verbose stack     at maybeClose (internal/child_process.js:818:16)
+83 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+84 verbose pkgid verkefni7@0.0.0
+85 verbose cwd C:\Users\egill\Documents\Haskolagogn\LocalThird\Vefforritun\skjalftaleit
+86 error Windows_NT 10.0.10240
+87 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+88 error node v4.2.2
+89 error npm  v2.14.7
+90 error code ELIFECYCLE
+91 error verkefni7@0.0.0 postinstall: `./node_modules/bower/bin/bower install`
+91 error Exit status 1
+92 error Failed at the verkefni7@0.0.0 postinstall script './node_modules/bower/bin/bower install'.
+92 error This is most likely a problem with the verkefni7 package,
+92 error not with npm itself.
+92 error Tell the author that this fails on your system:
+92 error     ./node_modules/bower/bin/bower install
+92 error You can get their info via:
+92 error     npm owner ls verkefni7
+92 error There is likely additional logging output above.
+93 verbose exit [ 1, true ]
