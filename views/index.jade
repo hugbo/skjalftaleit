@@ -19,17 +19,22 @@ html(lang='en')
       
       include ./navBar.jade
     
+    #mapJump
     .bg2
       .container 
         .col-md-12
           .row
             .content
-              // Section containing navigation menu and banner
-              // include ./bannerAndNav.jade
               #mapSection.scrollto
                 include ./map.jade
+                
+              #icelandSection.scrollto
+                include ./iceland.jade
+                
+              #icelandGeoSection.scrollto
+                include ./icelandgeo.jade
               
-              #aboutSection.scrollto
+              #aboutSection
                 include ./about.jade
               #aboutScroll.scrollto
             

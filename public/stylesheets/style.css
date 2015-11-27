@@ -55,6 +55,7 @@ body {
   background: lightgray;
   height: 10vh;
   top: 0px;
+  z-index: 1;
 }
 
 #nav {
@@ -88,8 +89,6 @@ body {
 }
 
 .active {
-  color: #fff !important;
-  text-decoration: underline !important;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -o-transform: translate3d(0, 0, 0);
@@ -151,8 +150,17 @@ body {
 
 
 /* MAP */
-.mapViewport {
-  height: 100vh;
+
+#mapJump:before {
+  content: '';
+  display: block;
+  height: 10vh;
+  margin: -10vh 0 0;
+  z-index: 0;
+}
+
+.mapSection {
+  padding: 10vh 0 0 0;
 }
 
 .mapTitle {
@@ -163,10 +171,6 @@ body {
   font-size: 1.5em;
 }
 
-#mapSection {
-  margin-bottom: 10vh;
-}
-
 #map {
   height: 600px;
   width: 100%;
@@ -174,7 +178,7 @@ body {
 
 /* SLIDERS */
 .sliders {
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   background: rgba(255,255,255,0.5);
 }
 
@@ -184,10 +188,12 @@ p.slider-text {
 }
 
 /* TABLE */
+.tableCheck:hover {background: rgba(255,255,255,0.5)}
+
 table#checkers {
   display: table;
   font-size: 1.2em;
-  margin: 20px auto 20px auto;
+  margin: 0 auto 0 auto;
   border-spacing: 30px;
   border-collapse: separate;
 }
@@ -196,22 +202,76 @@ table#checkers {
   padding: 5px;
 }
 
-td:hover {
-  border-radius: 5px;
-  padding: 5px;
-  background: rgba(255,255,255,0.5);
+/* ICELAND */
+
+#icelandSection {
+  padding: 10vh 50px 20px 50px;
+  font-size: 1.5em;
+}
+
+#icelandSection:focus {outline: none}
+
+#icelandSection:hover {background: rgba(255,255,255,0.5)}
+
+#icelandSection h4 {
+  padding: 20px;
+  
+  text-align: center;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  font-size: 3em;
+}
+
+.extraIceland {
+  display: none;
+}
+
+.extraIcelandToggle {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ICELAND GEO */
+
+#icelandGeoSection {
+  padding: 10vh 50px 20px 50px;
+  font-size: 1.5em;
+}
+
+#icelandGeoSection:focus {outline: none}
+
+#icelandGeoSection:hover {background: rgba(255,255,255,0.5)}
+
+#icelandGeoSection h4 {
+  padding: 20px;
+  
+  text-align: center;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  font-size: 3em;
+}
+
+.extraIcelandGeo {
+  display: none;
+}
+
+.extraIcelandGeoToggle {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* ABOUT US */
 #aboutSection {
-  padding: 10px;
-  height: 100vh;
+  padding: 10vh 50px 20px 50px;
+  height: 110vh;
 }
+
+#aboutSection:focus {outline: none}
+
+#aboutSection:hover {background: rgba(255,255,255,0.5)}
 
 #aboutSection h4 {
   padding: 20px;
   
   text-align: center;
   font-family: 'Oswald', Helvetica, sans-serif;
-  font-size: 3em;
+  font-size: 4em;
 }
