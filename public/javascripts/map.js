@@ -15,6 +15,36 @@ function initMap() {
 	});
 };
 
+// Function for evaluating which quakes should be displayed
+// based on user parameters.
+function evaluateQuakes() {
+	var tmpQuakeArray = [];
+	for(var i = 0; i < quakeArray.length; i++)
+	{
+		if()
+	}
+}
+
+// Function to see if Date object falls within bounds of user parameters
+function dateValid(dateObject, minDateObject, maxDateObject)
+{
+	var dateOfObject = dateObject.getDate();
+	if( (minDateObject.getDate() < dateOfObject) && (dateOfObject < maxDateObject.getDate()) )
+	{
+		return true;
+	}
+	return false;
+}
+
+// Function to see if quake strenfth falls within bound of user parameters
+function strengthValid(quakeStrength, minStrength, maxStrength) {
+	if((minStrength < quakeStrength) && (quakeStrength < maxStrength))
+	{
+		return true;
+	}
+	return false;
+}
+
 // Function for creating array of quake objects with data
 // array from JSON array. Stores them in array named quakearray
 // in file frontjavascript.js
