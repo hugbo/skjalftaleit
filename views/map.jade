@@ -1,16 +1,23 @@
-.mapViewport
-    .mapTitle
-        h1 The Map
+.mapTitle
+    h1 The Map
+
+.mapInfo
+    .mapInfoText
+        p.
+            On the map below you can see the earthquakes that have taken place on Iceland in the last two days. You can choose between markers 
+            for the earthquakes, circles whose size correspond to the earthquakes magnitude, or a heatmap. You can also use the sliders to
+            choose what magnitude earthquakes to show, or what time period to choose from.
+    p.mapInfoToggle Show instructions
         
-    #map
-        script(src="../public/javascripts/map.js")
-        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap&libraries=geometry,visualization" sync defer)
+#map
+   script(src="../public/javascripts/map.js")
+   script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap&libraries=geometry,visualization" sync defer)
     
-    .sliders
-        p(class='slider-text') Determine the magnitude of displayed earthquakes
-        #slider-size
-        p(class='slider-text') Determine the time period of displayed earthquakes
-        #slider-time
+.sliders
+    p(class='slider-text') Determine the magnitude of displayed earthquakes
+    #slider-size
+    p(class='slider-text') Determine the time period of displayed earthquakes
+    #slider-time
         
 #mapSelector.scrollto  
 

@@ -171,6 +171,22 @@ body {
   font-size: 1.5em;
 }
 
+.mapInfo {
+  padding: 20px 50px 20px 50px;
+  font-size: 1.5em;
+}
+
+.mapInfo:hover {background: rgba(255,255,255,0.5)}
+
+.mapInfoText {
+  display: none;
+}
+
+.mapInfoToggle {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 #map {
   height: 600px;
   width: 100%;
@@ -230,6 +246,11 @@ table#checkers {
   cursor: pointer;
 }
 
+.coatOfArms {
+  float: right;
+  text-align: center;
+}
+
 /* ICELAND GEO */
 
 #icelandGeoSection {
@@ -258,10 +279,16 @@ table#checkers {
   cursor: pointer;
 }
 
+.icelandPlates {
+  float: left;
+  text-align: center;
+}
+
 /* ABOUT US */
 #aboutSection {
   padding: 10vh 50px 20px 50px;
   height: 110vh;
+  font-size: 1.5em;
 }
 
 #aboutSection:focus {outline: none}
@@ -273,5 +300,14 @@ table#checkers {
   
   text-align: center;
   font-family: 'Oswald', Helvetica, sans-serif;
-  font-size: 4em;
+  font-size: 3.5em;
+}
+
+#aboutSection a {
+  color: black;
+  text-decoration: none;
+}
+
+#aboutSection a:hover {
+  text-decoration: underline;
 }

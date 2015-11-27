@@ -17,3 +17,13 @@ $('.extraIcelandGeoToggle').click(function() {
 		}
 	});
 });
+
+$('.mapInfoToggle').click(function() {
+	$('.mapInfoText').toggle(500, function() {
+		if ($('.mapInfoToggle').text() === 'Show instructions') {
+			$('.mapInfoToggle').text('Hide instructions');
+		} else {
+			$('.mapInfoToggle').text('Show instructions');
+		}
+	});
+});
