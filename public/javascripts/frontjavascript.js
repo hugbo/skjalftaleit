@@ -54,8 +54,6 @@ function egillAdFikta(response) {
   placeMarkers(markers);
   placeCircles(circles);
   */
-
-  var rawDataArray = response.results;
   console.log("Rawdata is", rawDataArray);
   objectToQuakeArray(rawDataArray);
   evaluateQuakes(quakeArray);
