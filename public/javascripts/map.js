@@ -35,14 +35,14 @@ function masterDisplayUpdate() {
 
 // Function for evaluating which quakes should be displayed
 // based on user parameters.
-function evaluateQuakes(quakeArray) {
+function evaluateQuakes(arrayOfQuakes) {
 	var tmpQuakeArray = [];
-	for(var i = 0; i < quakeArray.length; i++)
+	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
-		if(dateValid(quakeArray[i].time, timeSliderData.min, timeSliderData.max) &&
-		strengthValid(quakeArray[i].strength, richterSliderData.min, richterSliderData.max))
+		if(dateValid(arrayOfQuakes[i].time, timeSliderData.min, timeSliderData.max) &&
+		strengthValid(arrayOfQuakes[i].strength, richterSliderData.min, richterSliderData.max))
 		{
-			tmpQuakeArray.push(quakeArray[i]);
+			tmpQuakeArray.push(arrayOfQuakes[i]);
 		}
 	}
 	quakesToDisplay = tmpQuakeArray;
@@ -50,8 +50,7 @@ function evaluateQuakes(quakeArray) {
 
 
 // Function to see if Date object falls within bounds of user parameters
-function dateValid(dateObject, minDateObject, maxDateObject)
-{
+function dateValid(dateObject, minDateObject, maxDateObject) {
 	var dateOfObject = dateObject.getDate();
 	if( (minDateObject.getDate() < dateOfObject) && (dateOfObject < maxDateObject.getDate()) )
 	{

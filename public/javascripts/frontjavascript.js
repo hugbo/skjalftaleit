@@ -1,3 +1,5 @@
+// Object containing all data on earthquakes straight from database
+var masterData = {};
 // Array with info of all quakes available
 var quakeArray = [];
 // Array of quakes to be displayed (within user set parameters)
@@ -31,6 +33,7 @@ function getData(startTime, endTime, minmagnitude, maxmagnitude) {
     success: function(response) {
       //console.log(response);
       postData(response);
+      masterData = response;
       //egillAdFikta(response);
     }
   });
@@ -57,7 +60,7 @@ function getStripedData() {
     success: function(response) {
       console.log("Virkar!!!!");
       console.log(response);
-      egillAdFikta(response);
+      // egillAdFikta(response);
     },
     error: function(err) {
       console.error("oh noes " + err);
@@ -74,6 +77,8 @@ function egillAdFikta(response) {
   // Feeds data from apis.is into array of quake objects
   var rawDataArray = response.info;
   console.log("Rawdata is", rawDataArray);
+  // Hard set graphical objects
+  /*
   objectToQuakeArray(rawDataArray);
   console.log(quakeArray);
   createMarkers(quakeArray);
@@ -83,6 +88,10 @@ function egillAdFikta(response) {
   //createHeatmapPoints(quakeArray);
   placeMarkers(markers);
   placeCircles(circles);
+  */
+  objectToQuakeArray(rawDataArray);
+  evaluateQuakes(quakeArray);
+  masterDisplayUpdate();
 
   //placeHeatmapPoints(heatmapping);
   console.log("Data parsed");
