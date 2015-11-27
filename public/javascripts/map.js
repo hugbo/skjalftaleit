@@ -17,7 +17,7 @@ function initMap() {
 
 // Master function for displaying appropriate graphical objects on map
 function masterDisplayUpdate() {
-	// map.clearOverlays();
+	removeAllGraphics();
 	if($('#markerCheckbox').is(':checked'))
 	{
 		createMarkers(quakesToDisplay);
@@ -34,6 +34,24 @@ function masterDisplayUpdate() {
 		placeHeatmapPoints(heatmapping);
 	}
 	console.log("Master display complete")
+}
+
+// Function for removing all graphical objects from the map.
+function removeAllGraphics() {
+	for(var i = 0; i < markers.length; i++)
+	{
+		markers[i].setMap(null);
+	}
+
+	markers = [];
+	for(var i = 0; i < circles.length; i++)
+	{
+		circles[i].setMap(null);
+	}
+	if(heatmapping.map !== undefined)
+	{
+		heatmapping.setMap(null);
+	}
 }
 
 // Function for evaluating which quakes should be displayed
@@ -102,6 +120,7 @@ function createMarkers(arrayOfQuakes) {
 		console.log("Marker created");
 	}
 	markers = tmpArray;
+	setMarkerInfo(markers);
 };
 
 // Function for placing marker on map with given data
