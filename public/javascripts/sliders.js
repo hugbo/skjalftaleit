@@ -4,7 +4,8 @@ var timeSliderData = {};
 $(document).ready(function() {
 	$(function() {
 		var sliderSize = $('#slider-size');
-		// Range slider for user to choose which earthquakes to display based on magnitude
+		// Range slider for user to choose which earthquakes to display
+		// within set magnitude boundaries.
 		sliderSize.ionRangeSlider({
 			hide_min_max: true,
 			keyboard: true,
@@ -19,12 +20,14 @@ $(document).ready(function() {
 			min_interval: 0.5,
 			drag_interval: true,
 			onFinish: function(data) {
+				// Updates graphics objects on map when changed.
 				richterSliderData = data;
 				evaluateQuakes(quakeArray);
 				masterDisplayUpdate();
 				console.log(data);
 			},
 			onStart: function(data) {
+				// Data stored for initialization of map.
 				richterSliderData = data;
 				console.log("Magnitude slider data moved");
 			}
@@ -33,7 +36,8 @@ $(document).ready(function() {
 
 
 		var sliderTime = $('#slider-time');
-		// Range slider for user to choose which earthquakes to display based on time
+		// Range slider for user to choose which earthquakes to display
+		// that fall within time constraints.
 		sliderTime.ionRangeSlider({
 			hide_min_max: true,
 			keyboard: true,
@@ -52,27 +56,32 @@ $(document).ready(function() {
 				return m.format('Do MMMM, HH:mm');
 			},
 			onFinish: function(data) {
+				// Updates graphics objects on map when changed.
 				timeSliderData = data;
 				evaluateQuakes(quakeArray);
 				masterDisplayUpdate();
 				console.log(data);
 			},
 			onStart: function(data) {
+				// Data stored for initialization of map.
 				timeSliderData = data;
 				console.log("Time slider data moved");
 			}
 		});
 
+		// Event listeners to display certain types of graphical objects
+		// on map when checkboxes are checked.
 		$('#markerCheckbox').click(function() {
 			masterDisplayUpdate();
 		});
-
 		$('#circleCheckbox').click(function() {
 			masterDisplayUpdate();
 		});
-
 		$('#heatCheckbox').click(function() {
 			masterDisplayUpdate();
 		})
+
+		// Initialization of checkbox for markers.
+		$('#markerCheckbox').prop('checked',true);
 	});
 });
