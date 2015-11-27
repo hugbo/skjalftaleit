@@ -20,14 +20,17 @@ function masterDisplayUpdate() {
 	// map.clearOverlays();
 	if($('#markerCheckbox').is(':checked'))
 	{
+		createMarkers(quakesToDisplay);
 		placeMarkers(markers);
 	}
 	if($('#circleCheckbox').is(':checked'))
 	{
+		createCircles(quakesToDisplay);
 		placeCircles(circles);
 	}
 	if($('#heatCheckbox').is(':checked'))
 	{
+		createHeatmapPoints(quakesToDisplay);
 		placeHeatmapPoints(heatmapping);
 	}
 	console.log("Master display complete")
@@ -39,7 +42,8 @@ function evaluateQuakes(arrayOfQuakes) {
 	var tmpQuakeArray = [];
 	for(var i = 0; i < arrayOfQuakes.length; i++)
 	{
-		if(dateValid(arrayOfQuakes[i].time, timeSliderData.from, timeSliderData.to) &&
+		var quaketime = arrayOfQuakes[i].time / 1000;
+		if(dateValid(quaketime, timeSliderData.from, timeSliderData.to) &&
 		strengthValid(arrayOfQuakes[i].strength, richterSliderData.from, richterSliderData.to))
 		{
 			tmpQuakeArray.push(arrayOfQuakes[i]);
@@ -51,23 +55,20 @@ function evaluateQuakes(arrayOfQuakes) {
 
 
 // Function to see if Date object falls within bounds of user parameters
-function dateValid(dateObject, minDate, maxDate) {
-	var dateOfObject = dateObject.getDate();
-	if( (minDate < dateOfObject) && (dateOfObject < maxDateObject) )
+function dateValid(dateOfObject, minDate, maxDate) {
+	if( (minDate < dateOfObject) && (dateOfObject < maxDate) )
 	{
 		return true;
 	}
-	console.log("dateValid false");
 	return false;
 }
 
-// Function to see if quake strenfth falls within bound of user parameters
+// Function to see if quake strength falls within bounds of user parameters
 function strengthValid(quakeStrength, minStrength, maxStrength) {
 	if((minStrength < quakeStrength) && (quakeStrength < maxStrength))
 	{
 		return true;
 	}
-	console.log("strengthValid false");
 	return false;
 }
 
