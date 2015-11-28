@@ -51,7 +51,6 @@ gulp.task('browser-sync', function() {
 gulp.task('lint', function() {
   return gulp.src(['./routes/*.js', './public/javascripts/*.js','./lib/*.js', './*.js'])
     .pipe(jshint())
-  //  .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('default'));
 });
 
