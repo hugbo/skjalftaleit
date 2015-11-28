@@ -1,15 +1,18 @@
-'use strict'
+'use strict';
 
 var express = require('express');
 var router = express.Router();
-var request = require('request') //request module used for easy get requests.
+var request = require('request'); //request module used for easy get requests.
 var updateDB = require('../lib/StoreData'); //connection to StoreData.js
 
 /*
   Variables for the USGS request function
 */
 var d = new Date();
-var startDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() - 2);
+
+var startDate = d.getFullYear() + '-' + (d.getMonth() + 1)+
+'-' + (d.getDate() - 2);
+
 var endDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate());
 var minMagnitude = 0;
 var maxMagnitude = 10;
@@ -26,7 +29,7 @@ setInterval(function() {
 
 
 /* GET Home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.render('index');
 });
 
@@ -35,7 +38,7 @@ router.get('/data', function(req, res) {
   updateDB.getAllData(null, function(data) {
     var info = {
       'info': data.rows
-    }
+    };
     res.send(info);
   });
 });
@@ -50,18 +53,19 @@ FUNCTIONS / MIDDLEWARE
 /*
   Get request function for USGS - this function gets
   specific earthquake activity for a desired timeframe (and magnitude range)
-  from The United States Geological Survey and inserts them into our SQL database
+  from The United States Geological Survey and inserts them into our SQL
+  database
 */
 function getWorldQuakeData(start, end, min, max) {
-  var originUrl = 'http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&';
+  var url = 'http://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&';
   var startTime = '&starttime=' + start;
   var endTime = '&endtime=' + end;
   var minmagnitude = '&minmagnitude=' + min;
   var maxmagnitude = '&maxmagnitude=' + max;
-  var fetchUrl = originUrl + startTime + endTime + minmagnitude + maxmagnitude;
+  var fetchUrl = url + startTime + endTime + minmagnitude + maxmagnitude;
   console.log(fetchUrl);
   request(fetchUrl, function(err, res, body) {
-    console.log("fetching World data..");
+    console.log('fetching World data..');
     var data = JSON.parse(body);
     updateDB.updateTablesUSGS(data.features);
   });
@@ -74,9 +78,9 @@ function getWorldQuakeData(start, end, min, max) {
   them into our SQL database
 */
 function getIcelandicQuakeData() {
-  var url = "http://apis.is/earthquake/is";
+  var url = 'http://apis.is/earthquake/is';
   request(url, function(err, res, body) {
-    console.log("Icelandic Data");
+    console.log('Icelandic Data');
     var data = JSON.parse(body);
     updateDB.updateTablesAPIS(data.results);
   });

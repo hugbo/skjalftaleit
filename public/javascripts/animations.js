@@ -1,3 +1,5 @@
+'use strict';
+
 $('.extraIcelandToggle').click(function() {
   $('.extraIceland').toggle(500, function() {
     if ($('.extraIcelandToggle').text() === 'More') {
