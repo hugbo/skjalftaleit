@@ -79,7 +79,7 @@ function evaluateQuakes(arrayOfQuakes) {
       //console.log('Quake to display added');
     }
   }
-  /* global close:true*/
+  /* global quakesToDisplay:true*/
   quakesToDisplay = tmpQuakeArray;
 }
 
