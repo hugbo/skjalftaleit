@@ -1,11 +1,12 @@
 'use strict';
 /*global
-  google, quakesToDisplay, timeSliderData, richterSliderData, quakesToDisplay,
+  google, quakesToDisplay, timeSliderData, richterSliderData,
   quakeArray
 */
 /*exported
   initMap, masterDisplayUpdate, evaluateQuakes, objectToQuakeArray
 */
+/* jshint -W079 */
 
 // Variable for google map instance
 var map;
@@ -15,6 +16,8 @@ var circles = [];
 var heatmapping = {};
 // Variable for storing current info window that is open
 var currentInfoWindow = {};
+var quakesToDisplay = [];
+
 
 // Function for initializing map
 function initMap() {
