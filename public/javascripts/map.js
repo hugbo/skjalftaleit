@@ -16,6 +16,7 @@ var circles = [];
 var heatmapping = {};
 // Variable for storing current info window that is open
 var currentInfoWindow = {};
+// Variable for storing quakes to be displayed on map
 var quakesToDisplay = [];
 
 
