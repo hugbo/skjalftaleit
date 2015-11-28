@@ -264,7 +264,7 @@ function quake(latitude, longitude, richter, timestamp, location, dataOrigin) {
 }
 
 // Function for parsing Date object into custom string containing the day
-// in formar YYYY/MM/DD
+// in format YYYY/MM/DD
 function dayFromDateObject(dateObject) {
   var stringToReturn = dateObject.getFullYear() + '/' +
     dateObject.getMonth() + '/' +
