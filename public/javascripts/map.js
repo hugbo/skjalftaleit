@@ -208,6 +208,7 @@ function createCircles(arrayOfQuakes) {
     //console.log("Circle created");
   }
   circles = tmpArray;
+  attachMarkerListeners(circles);
 }
 
 // Function for placing circle on map with given data
