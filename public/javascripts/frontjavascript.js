@@ -1,7 +1,11 @@
 'use strict';
-import map
 // Array with info of all quakes available
 var quakeArray = [];
+
+/*global
+  objectToQuakeArray, evaluateQuakes, masterDisplayUpdate
+*/
+
 
 $(document).ready(function() {
   //console.log("Frontscript.js active");

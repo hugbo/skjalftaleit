@@ -1,3 +1,8 @@
+'use strict';
+
+/*jshint camelcase: false*/
+/*global masterDisplayUpdate, moment, quakeArray, evaluateQuakes*/
+
 var richterSliderData = {};
 var timeSliderData = {};
 
@@ -78,9 +83,10 @@ $(document).ready(function() {
     $('#circleCheckbox').click(function() {
       masterDisplayUpdate();
     });
+
     $('#heatCheckbox').click(function() {
       masterDisplayUpdate();
-    })
+    });
 
   });
 });
