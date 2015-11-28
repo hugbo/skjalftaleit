@@ -74,6 +74,7 @@ $(document).ready(function() {
 		$('#markerCheckbox').click(function() {
 			masterDisplayUpdate();
 		});
+
 		$('#circleCheckbox').click(function() {
 			masterDisplayUpdate();
 		});
@@ -81,7 +82,10 @@ $(document).ready(function() {
 			masterDisplayUpdate();
 		})
 
+
+		/*
 		// Initialization of checkbox for markers.
 		$('#markerCheckbox').prop('checked',true);
+		*/
 	});
 });

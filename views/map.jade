@@ -11,7 +11,7 @@
         
 #map
    script(src="../public/javascripts/map.js")
-   script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap&libraries=geometry,visualization" async defer)
+   script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap&libraries=geometry,visualization" sync defer)
     
 .sliders
     p(class='slider-text') Determine the magnitude of displayed earthquakes
@@ -26,7 +26,7 @@
       tr
         td
           label(for'checkbox')
-            input(type='checkbox')#markerCheckbox
+            input(type='checkbox' checked)#markerCheckbox
             | Marker
         td 
           | Place markers where each earthquacke occured. The markers are identical but on 
@@ -35,7 +35,7 @@
       tr
         td
           label(for'checkbox')
-            input(type='checkbox')#circleCheckbox
+            input(type='checkbox' )#circleCheckbox
             | Circles
         td 
           | Places circles where each earthquake occured. The size of the circle is proportionate 
@@ -44,7 +44,7 @@
       tr
         td
           label(for'checkbox')
-            input(type='checkbox')#heatCheckbox
+            input(type='checkbox' )#heatCheckbox
             | Heatmap
         td 
           | Produces a heatmap that shows whether earthquakes a frequent 
