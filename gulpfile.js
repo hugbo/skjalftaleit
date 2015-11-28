@@ -45,7 +45,6 @@ gulp.task('browser-sync', function() {
     proxy: 'http://localhost:3000',
     port: 8080,
   });
-  gulp.watch('./public/stylesheets/**/*.scss', ['styles']);
 });
 
 gulp.task('serve', ['nodemon', 'browser-sync']);
