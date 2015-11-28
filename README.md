@@ -1,5 +1,6 @@
 # skjalftaleit
 Lokaverkefni í Vefforritun - Jarðskjálftasíða
+[Opna síðu](https://skjalftaleit.herokuapp.com/)
 
 # Vefsíða með grafíska rauntímaframsetningu á gögnum um jarðskjálfta #
 
