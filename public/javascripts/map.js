@@ -97,9 +97,10 @@ function objectToQuakeArray(rawDataArray)
 		var longitude = rawDataArray[i].results.longitude;
 		var strength = rawDataArray[i].results.size;
 		var timestamp = new Date(rawDataArray[i].results.timestamp);
-		var tmpQuake = new quake(latitude, longitude, strength, timestamp)
+		var location = rawDataArray[i].humanReadableLocation;
+		var dataSource = rawDataArray[i].dataSource;
+		var tmpQuake = new quake(latitude, longitude, strength, timestamp, location, dataSource);
 		quakeArray.push(tmpQuake);
-		console.log(tmpQuake);
 		console.log("Quake added");
 	}
 }
@@ -143,8 +144,10 @@ function setMarkerInfo(markerArray) {
 					'Longitude: ' + markerArray[i].quake.lng + '<br/>' +
 					'Magnitude: ' + markerArray[i].quake.strength + '<br/>' +
 					'Date: ' + dayFromDateObject(markerArray[i].quake.time) + '<br/>' +
-					'Time: ' + timeFromDateObject(markerArray[i].quake.time)
-				+ '</p>'
+					'Time: ' + timeFromDateObject(markerArray[i].quake.time) + '<br/>' +
+					'Location: ' + markerArray[i].quake.readableLocation + '<br/>' +
+					'Data Source: ' + markerArray[i].quake.dataSource
+				+ '</p>' +
 			'</div>';
 
 		// Info window constructor
@@ -241,11 +244,13 @@ function placeHeatmapPoints(heatmapInput) {
 }
 
 // Function for creating object containing quake data
-function quake(latitude, longitude, richter, timestamp) {
+function quake(latitude, longitude, richter, timestamp, location, dataOrigin) {
 	this.lat = latitude;
 	this.lng = longitude;
 	this.strength = richter;
 	this.time = timestamp;
+	this.readableLocation = location;
+	this.dataSource = dataOrigin;
 };
 
 // Function for parsing Date object into custom string containing the day
