@@ -78,6 +78,7 @@ function evaluateQuakes(arrayOfQuakes) {
       //console.log('Quake to display added');
     }
   }
+  /* global close:true*/
   quakesToDisplay = tmpQuakeArray;
 }
 
@@ -243,11 +244,17 @@ function placeHeatmapPoints(heatmapInput) {
 
 // Function for creating object containing quake data
 function quake(latitude, longitude, richter, timestamp, location, dataOrigin) {
+  /* jshint validthis:true */
   this.lat = latitude;
+  /* jshint validthis:true */
   this.lng = longitude;
+  /* jshint validthis:true */
   this.strength = richter;
+  /* jshint validthis:true */
   this.time = timestamp;
+  /* jshint validthis:true */
   this.readableLocation = location;
+  /* jshint validthis:true */
   this.dataSource = dataOrigin;
 }
 
