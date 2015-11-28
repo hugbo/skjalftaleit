@@ -1,15 +1,14 @@
 'use strict';
 
-// Array with info of all quakes available
-var quakeArray = [];
-// Array with info of all quakes to be displayed on map within parameters
-/* global close:true*/
-var quakesToDisplay = [];
-
 /*global
   objectToQuakeArray, evaluateQuakes, masterDisplayUpdate, quakesToDisplay
 */
+/*jshint unused: false*/
 
+// Array with info of all quakes available
+var quakeArray = [];
+// Array with info of all quakes to be displayed on map within parameters
+var quakesToDisplay = [];
 
 $(document).ready(function() {
   //console.log("Frontscript.js active");

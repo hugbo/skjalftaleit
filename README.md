@@ -3,6 +3,21 @@ Lokaverkefni í Vefforritun - Jarðskjálftasíða
 
 # Vefsíða með grafíska rauntímaframsetningu á gögnum um jarðskjálfta #
 
+## Uppsetningarleiðbeiningar##
+Stilla gagnagrunn í `.env`
+
+```bash
+> bower install
+> npm install
+> gulp jshint
+> node sqlSetup/sqlSetup.js (þetta mun eyða *öllu* og búa til töflur aftur)
+> npm start (eða gulp fyrir Nodemon/BrowserSync virkni)
+```
+
+Einnig er hægt að keyra `earthquakeSchema.sql` sem má finna í möppunni
+'sqlSetup' sérstaklega inn í gagnagrunn.
+
+
 ## Verkefni ##
 
 Nauðsynlegt var að skipta verkefninu niður í viðráðanlega hluta svo hver og einn

@@ -5,9 +5,7 @@ var router = express.Router();
 var request = require('request'); //request module used for easy get requests.
 var updateDB = require('../lib/StoreData'); //connection to StoreData.js
 
-/*
-  Variables for the USGS request function
-*/
+/* Variables for the USGS request function */
 var d = new Date();
 
 var startDate = d.getFullYear() + '-' + (d.getMonth() + 1)+
@@ -16,6 +14,10 @@ var startDate = d.getFullYear() + '-' + (d.getMonth() + 1)+
 var endDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate());
 var minMagnitude = 0;
 var maxMagnitude = 10;
+
+/*Fetch data from apis.is and USGS on server startup */
+getWorldQuakeData(startDate, endDate, minMagnitude, maxMagnitude);
+getIcelandicQuakeData();
 
 //Get data from apis.is every 5 minutes
 setInterval(function() {
