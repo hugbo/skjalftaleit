@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 $('.earthquakeToggle').click(function() {
   $('.extraEarthquakes').toggle(500, function() {
