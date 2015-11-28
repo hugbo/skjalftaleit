@@ -101,8 +101,8 @@ function objectToQuakeArray(rawDataArray)
 		var dataSource = rawDataArray[i].results.dataSource;
 		var tmpQuake = new quake(latitude, longitude, strength, timestamp, location, dataSource);
 		quakeArray.push(tmpQuake);
-		//console.log("Quake added");
 	}
+	console.log("Quakes have been added");
 }
 
 // Function for creating markers and placing in array

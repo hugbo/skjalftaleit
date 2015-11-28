@@ -1,5 +1,3 @@
-// Object containing all data on earthquakes straight from database
-var masterData = {};
 // Array with info of all quakes available
 var quakeArray = [];
 // Array of quakes to be displayed (within user set parameters)
