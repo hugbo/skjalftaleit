@@ -1,17 +1,17 @@
 'use strict';
 
+/*global
+  objectToQuakeArray, evaluateQuakes, masterDisplayUpdate, quakesToDisplay
+*/
+/*exported
+  quakesToDisplay
+*/
+/*jshint unused: false*/
+
 // Array with info of all quakes available
 var quakeArray = [];
 // Array with info of all quakes to be displayed on map within parameters
 var quakesToDisplay = [];
-
-/*global
-  objectToQuakeArray, evaluateQuakes, masterDisplayUpdate, quakesToDisplay
-*/
-
-/*exported
-  quakesToDisplay
-*/
 
 
 $(document).ready(function() {

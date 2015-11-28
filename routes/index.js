@@ -16,7 +16,7 @@ var minMagnitude = 0;
 var maxMagnitude = 10;
 
 /*Fetch data from apis.is and USGS on server startup */
-getWorldQuakeData(start, end, min, max);
+getWorldQuakeData(startDate, endDate, minMagnitude, maxMagnitude);
 getIcelandicQuakeData();
 
 //Get data from apis.is every 5 minutes
