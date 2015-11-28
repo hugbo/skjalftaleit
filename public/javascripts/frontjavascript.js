@@ -3,16 +3,12 @@
 /*global
   objectToQuakeArray, evaluateQuakes, masterDisplayUpdate, quakesToDisplay
 */
-/*exported
-  quakesToDisplay
-*/
 /*jshint unused: false*/
 
 // Array with info of all quakes available
 var quakeArray = [];
 // Array with info of all quakes to be displayed on map within parameters
 var quakesToDisplay = [];
-
 
 $(document).ready(function() {
   //console.log("Frontscript.js active");
