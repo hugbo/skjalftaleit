@@ -39,14 +39,30 @@ og þeim komið fyrir á kort sem er myndað með Google Maps API. Notandi hefur
 á að breyta sýnileika gagna með framendanum. Útlit og uppbygging á framenda notar
 Bootstrap og ýmsa Node.js pakka til að útfæra skalanlega vefsíðu.
 
+## Plugins og modules ##
+
+Þau plugin og modules sem voru notuð í þessu verkefni eru eftirfarandi:
+* Express
+* Node.js
+* Google maps API
+* USGS
+* jQuery
+* ion.Rangeslider
+* Moment.js
+* Sticky Navbar
+* Github
+
+Hlekki inn á síður þessara pakka má finna á síðunni með verkefninu undir
+"About us"
+
 ## Vonir og væntingar ##
 
 Takmarkið var að gera vel hannaða síðu, með bæði útlit og virkni í huga, sem sýndi
 gögnin með ásættanlegum hraða og án villna. Að okkar mati hefur allt ofangreint
 tekist ágætlega og ekkert athugavert við síðuna eins og hún stendur. Eina sem
-hefði mátt betur fara er hraðinn. Með nægilegri þekkingu væri mögulega hægt að
-gera Google Maps kortið eilítið hraðari (asynchronous virkni t.d.) þegar það er
-að eiga við mikið af grafískum gögnum.
+hefði mátt betur fara er hraðinn og navbar. Með nægilegri þekkingu væri mögulega
+hægt að gera Google Maps kortið eilítið hraðari (asynchronous virkni t.d.) þegar það er að eiga við mikið af grafískum gögnum. Navbarið er ekki fullkomlega skalanlegt
+þar sem það var ekki hannað til að notast í mobile tækjum.
 
 ## Niðurstaða ##
 Síðan hefur heppnast ágætlega og engar alvarlegar villur eiga sér stað
