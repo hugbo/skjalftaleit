@@ -31,7 +31,7 @@ virkni á framenda og bakendavirkni. Þessu var svo enn frekar skipt í:
 * Útbúa viðmót fyrir notanda til að stýra sýnileika á gögnum.
 * Hanna skýrt og skalanlegt útlit fyrir síðuna.
 
-Bakendavinnsla notaðist aðallega við PostgreSQL og Express til að ná tengingu við
+Bakendavinnsla notaðist aðallega við [PostgreSQL](http://www.postgresql.org/) og [Express](http://expressjs.org) til að ná tengingu við
 [apis.is](http://docs.apis.is/#) og [usgs.gov](http://www.usgs.gov/) til
 að fá hrá gögn. Express er svo notað til að vinna úr gögnunum í bakendanum og koma þeim
 svo yfir á framendann. Í framendanum er Javascript notað til að vinna úr JSON gögnum
@@ -41,16 +41,30 @@ Bootstrap og ýmsa Node.js pakka til að útfæra skalanlega vefsíðu.
 
 ## Plugins og modules ##
 
-Þau plugin og modules sem voru notuð í þessu verkefni eru eftirfarandi:
-* Express
-* Node.js
-* Google maps API
-* USGS
-* jQuery
-* ion.Rangeslider
-* Moment.js
-* Sticky Navbar
-* Github
+Þau plugin og framework  sem voru notuð í framenda fyrir þessu verkefni eru:
+* [Google Maps API](https://developers.google.com/maps/?hl=en)
+* [jQuery](https://jquery.com/)
+* [bootstrap](http://getbootstrap.com)
+* [ion.Rangeslider](http://ionden.com/a/plugins/ion.rangeSlider/en.html)
+* [Moment.js](momentjs.com)
+* [Sticky Navbar](http://www.jozefbutko.com/stickynavbar/)
+
+Þau framework og modules sem voru notuð í bakenda fyrir þessu verkefni eru:
+* [Node.js](https://nodejs.org/en/)
+* [Express](http://expressjs.com/)
+* [request](https://www.npmjs.com/package/request)
+* [pq](https://github.com/brianc/node-postgres)
+* [dotenv](https://github.com/bkeepers/dotenv)
+* [gulp](http://gulpjs.com/)
+* [jshint fyrir gulp](https://www.npmjs.com/package/gulp-jshint)
+* [nodemon fyrir gulp](https://www.npmjs.com/package/gulp-nodemon)
+* [BrowserSync fyrir gulp](http://www.browsersync.io/docs/gulp/)
+
+Jarðskjálftamælingar fengust frá:
+* [USGS](http://earthquake.usgs.gov/fdsnws/event/1/)
+* [apis.is](http://docs.apis.is/#)
+
+Fyrir version control / samvinnu var notað [Github](https://github.com/lokaverkefni-vefforritun-SEO/skjalftaleit)
 
 Hlekki inn á síður þessara pakka má finna á síðunni með verkefninu undir
 "About us"
