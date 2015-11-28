@@ -163,6 +163,8 @@ body {
   padding: 10vh 0 0 0;
 }
 
+.mapSection:focus {outline: none}
+
 .mapTitle {
   padding: 1.5em;
   
@@ -174,9 +176,12 @@ body {
 .mapInfo {
   padding: 20px 50px 20px 50px;
   font-size: 1.5em;
+  margin-top: -3em;
 }
 
 .mapInfo:hover {background: rgba(255,255,255,0.5)}
+
+.mapInfo:focus {outline: none}
 
 .mapInfoText {
   display: none;
@@ -198,6 +203,8 @@ body {
   background: rgba(255,255,255,0.5);
 }
 
+.sliders:focus {outline: focus}
+
 p.slider-text {
   text-align: center;
   font-size: 2em;
@@ -205,6 +212,8 @@ p.slider-text {
 
 /* TABLE */
 .tableCheck:hover {background: rgba(255,255,255,0.5)}
+
+.tableCheck:focus {outline: none}
 
 table#checkers {
   display: table;
@@ -216,6 +225,39 @@ table#checkers {
 
 #checkers td {
   padding: 5px;
+}
+
+/* EARTHQUAKES */
+
+#earthquakeSection {
+  padding: 10vh 50px 20px 50px;
+  font-size: 1.5em;
+}
+
+#earthquakeSection:focus {outline: none}
+
+#earthquakeSection:hover {background: rgba(255,255,255,0.5)}
+
+#earthquakeSection h4 {
+  padding: 20px;
+  
+  text-align: center;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  font-size: 3em;
+}
+
+.extraEarthquakes {
+  display: none;
+}
+
+.earthquakeToggle {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.faultTypes {
+  float: right;
+  text-align: center;
 }
 
 /* ICELAND */
