@@ -1,14 +1,12 @@
-'use strict'
+'use strict';
 
 // Array with info of all quakes available
 var quakeArray = [];
-// Array of quakes to be displayed (within user set parameters)
-var quakesToDisplay = [];
 
 $(document).ready(function() {
   //console.log("Frontscript.js active");
   // Remove navigation buttons from banner
-  $('.carousel-indicators ').css("display", "none");
+  $('.carousel-indicators ').css('display', 'none');
   getData();
   //Check for new data every 5 minutes
   setInterval(function() {
@@ -31,7 +29,7 @@ function getData() {
       renderData(response);
     },
     error: function(err) {
-      console.error("oh noes " + err);
+      console.error('oh noes', err);
     }
   });
 }

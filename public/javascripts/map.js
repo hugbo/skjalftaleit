@@ -20,7 +20,7 @@ function initMap() {
     },
     zoom: 5
   });
-};
+}
 
 // Master function for displaying appropriate graphical objects on map
 function masterDisplayUpdate() {
@@ -49,8 +49,8 @@ function removeAllGraphics() {
   // First all markers removed from map and then deleted. Easily possible
   // to reattain markers by using quakeArray and createMarkers
   markers = [];
-  for (var i = 0; i < circles.length; i++) {
-    circles[i].setMap(null);
+  for (var o = 0; o < circles.length; o++) {
+    circles[o].setMap(null);
   }
   // Heatmap is all in one object, no need for loop.
   if (heatmapping.map !== undefined) {

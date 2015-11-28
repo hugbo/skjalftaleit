@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
 var browserSync = require('browser-sync').create();
+var jshint = require('gulp-jshint');
 
 
 // We need a slight delay to reload browsers
@@ -45,7 +46,12 @@ gulp.task('browser-sync', function() {
     proxy: 'http://localhost:3000',
     port: 8080,
   });
-  gulp.watch('./public/stylesheets/**/*.scss', ['styles']);
+});
+
+gulp.task('jshint', function() {
+  return gulp.src(['./routes/*.js', './public/javascripts/*.js','./lib/*.js', './app.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
 
 gulp.task('serve', ['nodemon', 'browser-sync']);
