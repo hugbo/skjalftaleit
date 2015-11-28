@@ -8,8 +8,8 @@ var startDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() 
 var endDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate());
 var minMagnitude= 0;
 var maxMagnitude = 10;
-setInterval(getIcelandicQuakeData(), 5*60*1000);
-setInterval(getWorldQuakeData(startDate, endDate, minMagnitude, maxMagnitude), 10*60*1000);
+setInterval(getIcelandicQuakeData(), 10*60*1000);
+setInterval(getWorldQuakeData(startDate, endDate, minMagnitude, maxMagnitude), 15*60*1000);
 
 
 /* GET and POST Home page. */
