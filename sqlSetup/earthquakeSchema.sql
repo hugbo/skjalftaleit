@@ -1,6 +1,6 @@
 -- Table: earthquakes
 
--- DROP TABLE earthquakes;
+DROP TABLE earthquakes;
 
 CREATE TABLE earthquakes
 (

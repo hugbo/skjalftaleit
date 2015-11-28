@@ -3,7 +3,6 @@ var fs = require('fs');
 var path = require('path');
 require('dotenv').load();
 
-var query = require('../lib/query');
 var schema = path.join(__dirname, './earthquakeSchema.sql');
 var pg = require('pg');
 var DATABASE = process.env.DATABASE_URL;
@@ -17,7 +16,7 @@ fs.readFile(schema, function (err, data) {
     return;
   }
 
-  query(data.toString('utf8'), [], function (err) {
+  sqlQuery(data.toString('utf8'), [], function (err) {
     if (err) {
       console.error('Error running script!', err);
       return;
