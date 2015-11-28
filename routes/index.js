@@ -4,8 +4,9 @@ var request = require('request')
 var updateDB = require('../lib/StoreData');
 
 var d = new Date();
-var startDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() - 2);
+//var startDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() - 2);
 var endDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate());
+var startDate = "2015-11-21";
 var minMagnitude= 0;
 var maxMagnitude = 10;
 setInterval(getIcelandicQuakeData(), 10*60*1000);
