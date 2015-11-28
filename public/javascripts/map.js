@@ -71,7 +71,7 @@ function evaluateQuakes(arrayOfQuakes) {
 		checkWithinBounds(arrayOfQuakes[i].strength, richterSliderData.from, richterSliderData.to))
 		{
 			tmpQuakeArray.push(arrayOfQuakes[i]);
-			console.log('Quake to display added');
+			//console.log('Quake to display added');
 		}
 	}
 	quakesToDisplay = tmpQuakeArray;
@@ -97,11 +97,11 @@ function objectToQuakeArray(rawDataArray)
 		var longitude = rawDataArray[i].results.longitude;
 		var strength = rawDataArray[i].results.size;
 		var timestamp = new Date(rawDataArray[i].results.timestamp);
-		var location = rawDataArray[i].humanReadableLocation;
-		var dataSource = rawDataArray[i].dataSource;
+		var location = rawDataArray[i].results.humanReadableLocation;
+		var dataSource = rawDataArray[i].results.dataSource;
 		var tmpQuake = new quake(latitude, longitude, strength, timestamp, location, dataSource);
 		quakeArray.push(tmpQuake);
-		console.log("Quake added");
+		//console.log("Quake added");
 	}
 }
 
@@ -117,7 +117,7 @@ function createMarkers(arrayOfQuakes) {
 		// Inserts corresponding quake object into marker itself
 		marker['quake'] = arrayOfQuakes[i];
 		tmpArray.push(marker);
-		console.log("Marker created");
+		//console.log("Marker created");
 	}
 	markers = tmpArray;
 	// Attaches info windows to markers
@@ -129,7 +129,7 @@ function placeMarkers(arrayOfMarkers) {
 	for(var i = 0; i < arrayOfMarkers.length; i++)
 	{
 		arrayOfMarkers[i].setMap(map);
-		console.log("Marker placed");
+		//console.log("Marker placed");
 	}
 };
 

@@ -10,10 +10,10 @@ var minMagnitude= 0;
 var maxMagnitude = 10;
 setInterval(function(){
   getIcelandicQuakeData();
-}, 5*60*1000);
+}, 1*60*1000);
 setInterval(function(){
   getWorldQuakeData(startDate, endDate, minMagnitude, maxMagnitude);
-}, 10*60*1000);
+}, 2*60*1000);
 
 
 /* GET and POST Home page. */

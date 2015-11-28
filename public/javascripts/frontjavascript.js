@@ -41,19 +41,6 @@ function getStripedData() {
 function egillAdFikta(response) {
   // Feeds data from apis.is into array of quake objects
   var rawDataArray = response.info;
-  //console.log("Rawdata is", rawDataArray);
-  // Hard set graphical objects
-  /*
-  objectToQuakeArray(rawDataArray);
-  console.log(quakeArray);
-  createMarkers(quakeArray);
-  console.log(markers);
-  setMarkerInfo(markers);
-  createCircles(quakeArray);
-  //createHeatmapPoints(quakeArray);
-  placeMarkers(markers);
-  placeCircles(circles);
-  */
   console.log("Rawdata is", rawDataArray);
   objectToQuakeArray(rawDataArray);
   evaluateQuakes(quakeArray);
