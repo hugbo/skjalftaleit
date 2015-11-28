@@ -25,8 +25,8 @@
     table#checkers
       tr
         td
-          label(for'checkbox')
-            input(type='checkbox' name='switch' value='marker' checked)#markerCheckbox
+          label(for='checkbox')
+            input(type='checkbox' checked)#markerCheckbox
             | Marker
         td 
           | Place markers where each earthquacke occured. The markers are identical but on 
@@ -34,8 +34,8 @@
           | click will display information about their respective earthquake.
       tr
         td
-          label(for'checkbox')
-            input(type='checkbox' name='switch' value='circle')#circleCheckbox
+          label(for='checkbox')
+            input(type='checkbox' )#circleCheckbox
             | Circles
         td 
           | Places circles where each earthquake occured. The size of the circle is proportionate 
@@ -43,8 +43,8 @@
           | to the size of the earthquake and so is the intensity of the colour.
       tr
         td
-          label(for'checkbox')
-            input(type='checkbox' name='switch' value='heat')#heatCheckbox
+          label(for='checkbox')
+            input(type='checkbox' )#heatCheckbox
             | Heatmap
         td 
           | Produces a heatmap that shows whether earthquakes a frequent 
