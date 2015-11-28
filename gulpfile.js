@@ -48,7 +48,7 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('lint', function() {
+gulp.task('jshint', function() {
   return gulp.src(['./routes/*.js', './public/javascripts/*.js','./lib/*.js', './*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
