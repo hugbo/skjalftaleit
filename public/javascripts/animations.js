@@ -6,6 +6,7 @@ $('.earthquakeToggle').click(function() {
       $('.earthquakeToggle').text('Less');
     } else {
       $('.earthquakeToggle').text('More');
+      $('html, body').animate({scrollTop: $("#earthquakeSection").offset().top}, 500);
     }
   });
 });
@@ -16,6 +17,7 @@ $('.extraIcelandToggle').click(function() {
       $('.extraIcelandToggle').text('Less');
     } else {
       $('.extraIcelandToggle').text('More');
+      $('html, body').animate({scrollTop: $("#icelandSection").offset().top}, 500);
     }
   });
 });
@@ -26,6 +28,7 @@ $('.extraIcelandGeoToggle').click(function() {
       $('.extraIcelandGeoToggle').text('Less');
     } else {
       $('.extraIcelandGeoToggle').text('More');
+      $('html, body').animate({scrollTop: $("#icelandGeoSection").offset().top}, 500);
     }
   });
 });
