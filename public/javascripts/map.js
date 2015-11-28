@@ -1,3 +1,5 @@
+'use strict'
+
 // Variable for google map instance
 var map;
 // Variables for graphical objects to be placed on map

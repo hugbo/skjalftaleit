@@ -1,3 +1,15 @@
+'use strict'
+
+$('.earthquakeToggle').click(function() {
+  $('.extraEarthquakes').toggle(500, function() {
+    if ($('.earthquakeToggle').text() === 'More') {
+      $('.earthquakeToggle').text('Less');
+    } else {
+      $('.earthquakeToggle').text('More');
+    }
+  });
+});
+
 $('.extraIcelandToggle').click(function() {
   $('.extraIceland').toggle(500, function() {
     if ($('.extraIcelandToggle').text() === 'More') {

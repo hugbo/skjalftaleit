@@ -1,3 +1,5 @@
+'use strict'
+
 var richterSliderData = {};
 var timeSliderData = {};
 

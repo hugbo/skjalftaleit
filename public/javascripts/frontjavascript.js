@@ -1,3 +1,5 @@
+'use strict'
+
 // Array with info of all quakes available
 var quakeArray = [];
 // Array of quakes to be displayed (within user set parameters)
