@@ -146,8 +146,8 @@ function setMarkerInfo(markerArray) {
 					'Date: ' + dayFromDateObject(markerArray[i].quake.time) + '<br/>' +
 					'Time: ' + timeFromDateObject(markerArray[i].quake.time) + '<br/>' +
 					'Location: ' + markerArray[i].quake.readableLocation + '<br/>' +
-					'Data Source: ' + markerArray[i].quake.dataSource
-				+ '</p>' +
+					'Data Source: ' + markerArray[i].quake.dataSource +
+			 '</p>' +
 			'</div>';
 
 		// Info window constructor
