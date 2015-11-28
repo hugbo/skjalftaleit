@@ -208,42 +208,6 @@ function createCircles(arrayOfQuakes) {
     //console.log("Circle created");
   }
   circles = tmpArray;
-  attachCircleListeners(circles); //
-}
-
-function setCircleInfo(markerArray) { //
-  for (var i = 0; i < markerArray.length; i++) {
-    // Content for info box
-    var contentString = '<div class="markerContent">' +
-      '<p>' +
-      'Latitude: ' + markerArray[i].quake.lat + '<br/>' +
-      'Longitude: ' + markerArray[i].quake.lng + '<br/>' +
-      'Magnitude: ' + markerArray[i].quake.strength + '<br/>' +
-      'Date: ' + dayFromDateObject(markerArray[i].quake.time) + '<br/>' +
-      'Time: ' + timeFromDateObject(markerArray[i].quake.time) + '<br/>' +
-      'Location: ' + markerArray[i].quake.readableLocation + '<br/>' +
-      'Data Source: ' + markerArray[i].quake.dataSource +
-      '</p>' +
-      '</div>';
-
-    // Info window constructor
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-    markerArray[i].infowindow = infowindow;
-    attachCircleListeners(i);
-  }
-}
-
-function attachCircleListeners(i) {
-  google.maps.event.addListener(circles[i], 'click', function() {
-    if (currentInfoWindow.content !== undefined) {
-      currentInfoWindow.close();
-    }
-    this.infowindow.setPosition(circles[i].latLng);
-    this.infoWindow.open(map);
-    currentInfoWindow = this.infowindow;
-  });
 }
 
 // Function for placing circle on map with given data
