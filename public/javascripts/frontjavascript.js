@@ -2,28 +2,31 @@
 var quakeArray = [];
 // Array of quakes to be displayed (within user set parameters)
 var quakesToDisplay = [];
-// Current date, created when webpage is run
-var d = new Date();
-var tmpData = {};
 
 $(document).ready(function() {
-  console.log("Frontscript.js active");
+  //console.log("Frontscript.js active");
   // Remove navigation buttons from banner
   $('.carousel-indicators ').css("display", "none");
-  setInterval(getStripedData(),5000);
+  getData();
+  //Check for new data every 5 minutes
+  setInterval(function() {
+    getData();
+  }, 60 * 5 * 1000);
 });
 
-function getStripedData() {
-  console.log("getStripedData activated");
+/*
+  Get all available earthquake data from the backend, and render
+  the data on success
+*/
+function getData() {
+  //console.log("getStripedData activated");
   $.ajax({
     url: '/data',
     type: 'GET',
     contentType: 'application/json',
     dataType: 'JSON',
     success: function(response) {
-      console.log("Virkar!!!!");
-      console.log(response);
-      egillAdFikta(response);
+      renderData(response);
     },
     error: function(err) {
       console.error("oh noes " + err);
@@ -32,18 +35,14 @@ function getStripedData() {
 }
 
 /*
-  Notkun: egillAdFikta(response);
-  Fyrir: Egill þarf að vera í stuði til þess að fikta
-  Eftir:  Egill er búinn að fikta ( ͡° ͜ʖ ͡°)
+  This function initializes all the functions needed to render
+  the markers, circles etc with the latest earthquake data.
 */
-function egillAdFikta(response) {
-  // Feeds data from apis.is into array of quake objects
+function renderData(response) {
+  // Feeds data from the SQL database into an array of quake objects
   var rawDataArray = response.info;
-  console.log("Rawdata is", rawDataArray);
   objectToQuakeArray(rawDataArray);
   evaluateQuakes(quakeArray);
   masterDisplayUpdate();
 
-  //placeHeatmapPoints(heatmapping);
-  console.log("Data parsed");
 }
