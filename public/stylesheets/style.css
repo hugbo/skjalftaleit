@@ -159,11 +159,7 @@ body {
   z-index: 0;
 }
 
-.mapSection {
-  padding: 10vh 0 0 0;
-}
-
-.mapSection:focus {outline: none}
+#mapSection:focus {outline: none}
 
 .mapTitle {
   padding: 1.5em;
