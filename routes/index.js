@@ -8,7 +8,8 @@ var startDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate() 
 var endDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate());
 var minMagnitude= 0;
 var maxMagnitude = 10;
-setTimeout(getIcelandicQuakeData(), 5*60*1000);
+setInterval(getIcelandicQuakeData(), 5*60*1000);
+setInterval(getWorldQuakeData(startDate, endDate, minMagnitude, maxMagnitude), 10*60*1000);
 
 
 /* GET and POST Home page. */
@@ -68,8 +69,9 @@ function getWorldQuakeData(start, end, min, max){
   var fetchUrl = originUrl+startTime+endTime+minmagnitude+maxmagnitude;
   console.log(fetchUrl);
     request(fetchUrl, function(err, res, body){
-      console.log("fetching..");
-      console.log(body);
+      console.log("fetching World data..");
+      var data = JSON.parse(body);
+      updateDB.updateTablesUSGS(data.features);
     });
 }
 
@@ -78,7 +80,7 @@ function getIcelandicQuakeData(){
   request(url, function(err, res, body){
     console.log("Icelandic Data");
     var data = JSON.parse(body);
-    updateDB.updateTables(data.results);
+    updateDB.updateTablesAPIS(data.results);
   });
 }
 
