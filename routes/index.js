@@ -6,7 +6,7 @@ var request = require('request'); //request module used for easy get requests.
 var updateDB = require('../lib/StoreData'); //connection to StoreData.js
 
 /* Variables for the USGS request function */
-var initDate = '2015-11-21' //initial date we want to use when server starts
+var initDate = '2015-11-21'; //initial date we want to use when server starts
 var d = new Date();
 var startDate = d.getFullYear() + '-' + (d.getMonth() + 1)+
 '-' + (d.getDate() - 2); //we want to monitor data from the last 2 days
