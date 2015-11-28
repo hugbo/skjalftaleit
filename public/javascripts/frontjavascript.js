@@ -3,6 +3,11 @@
 // Array with info of all quakes available
 var quakeArray = [];
 
+/*global
+  objectToQuakeArray, evaluateQuakes, masterDisplayUpdate
+*/
+
+
 $(document).ready(function() {
   //console.log("Frontscript.js active");
   // Remove navigation buttons from banner

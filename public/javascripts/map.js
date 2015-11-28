@@ -1,4 +1,11 @@
-'use strict'
+'use strict';
+/*global
+  google, quakesToDisplay, timeSliderData, richterSliderData, quakesToDisplay,
+  quakeArray
+*/
+/*exported
+  initMap, masterDisplayUpdate, evaluateQuakes, objectToQuakeArray
+*/
 
 // Variable for google map instance
 var map;
@@ -66,7 +73,8 @@ function evaluateQuakes(arrayOfQuakes) {
     // Time divided by 1000 to receive time in seconds, not milliseconds
     var quaketime = arrayOfQuakes[i].time / 1000;
     if (checkWithinBounds(quaketime, timeSliderData.from, timeSliderData.to) &&
-      checkWithinBounds(arrayOfQuakes[i].strength, richterSliderData.from, richterSliderData.to)) {
+      checkWithinBounds(arrayOfQuakes[i].strength, richterSliderData.from,
+        richterSliderData.to)) {
       tmpQuakeArray.push(arrayOfQuakes[i]);
       //console.log('Quake to display added');
     }
@@ -94,7 +102,8 @@ function objectToQuakeArray(rawDataArray) {
     var timestamp = new Date(rawDataArray[i].results.timestamp);
     var location = rawDataArray[i].results.humanReadableLocation;
     var dataSource = rawDataArray[i].results.dataSource;
-    var tmpQuake = new quake(latitude, longitude, strength, timestamp, location, dataSource);
+    var tmpQuake = new quake(latitude, longitude, strength, timestamp,
+      location, dataSource);
     quakeArray.push(tmpQuake);
   }
   //console.log("Quakes have been added");
@@ -112,14 +121,14 @@ function createMarkers(arrayOfQuakes) {
       title: 'marker number ' + i
     });
     // Inserts corresponding quake object into marker itself
-    marker['quake'] = arrayOfQuakes[i];
+    marker.quake = arrayOfQuakes[i];
     tmpArray.push(marker);
     //console.log("Marker created");
   }
   markers = tmpArray;
   // Attaches info windows to markers
   setMarkerInfo(markers);
-};
+}
 
 // Function for placing marker on map with given data
 function placeMarkers(arrayOfMarkers) {
@@ -127,7 +136,7 @@ function placeMarkers(arrayOfMarkers) {
     arrayOfMarkers[i].setMap(map);
     //console.log("Marker placed");
   }
-};
+}
 
 // Function for attaching info windows to markers
 function setMarkerInfo(markerArray) {
@@ -166,13 +175,6 @@ function attachMarkerListeners(i) {
   });
 }
 
-// Function for opening info window when marker is clicked.
-function markerClicked() {
-  return function() {
-    markers[i].info.open(map, markers[i]);
-  }
-}
-
 // Function for creating circular graphics objects for the map.
 function createCircles(arrayOfQuakes) {
   var tmpArray = [];
@@ -181,7 +183,7 @@ function createCircles(arrayOfQuakes) {
     // Stronger quakes result in less transparent circles.
     var opacity = arrayOfQuakes[i].strength / 10.0;
     if (opacity > 1.0) {
-      opacity = 1.0
+      opacity = 1.0;
     }
     // Constructor for circles.
     var circle = new google.maps.Circle({
@@ -201,7 +203,7 @@ function createCircles(arrayOfQuakes) {
     //console.log("Circle created");
   }
   circles = tmpArray;
-};
+}
 
 // Function for placing circle on map with given data
 function placeCircles(arrayOfCircles) {
@@ -209,21 +211,22 @@ function placeCircles(arrayOfCircles) {
     circles[i].setMap(map);
     //console.log("Circle placed");
   }
-};
+}
 
 // Function for creating heatmap points
 function createHeatmapPoints(arrayOfQuakes) {
   var heatmapData = [];
   for (var i = 0; i < arrayOfQuakes.length; i++) {
     // LatLng object with coordinates of earthquake.
-    var latLng = new google.maps.LatLng(arrayOfQuakes[i].lat, arrayOfQuakes[i].lng)
+    var latLng = new google.maps.LatLng(arrayOfQuakes[i].lat,
+       arrayOfQuakes[i].lng);
       // Size and weight of heatpoint increase with earthquake magnitude.
-    tmpWeight = arrayOfQuakes[i].strength / 15;
+    var tmpWeight = arrayOfQuakes[i].strength / 15;
     var weightedLocation = {
       location: latLng,
       weight: tmpWeight,
       radius: 1
-    }
+    };
     heatmapData.push(weightedLocation);
   }
   // Takes all weighted points and places them on single heatmap layer
@@ -247,13 +250,13 @@ function quake(latitude, longitude, richter, timestamp, location, dataOrigin) {
   this.time = timestamp;
   this.readableLocation = location;
   this.dataSource = dataOrigin;
-};
+}
 
 // Function for parsing Date object into custom string containing the day
 // in formar YYYY/MM/DD
 function dayFromDateObject(dateObject) {
-  var stringToReturn = dateObject.getFullYear() + "/" +
-    dateObject.getMonth() + "/" +
+  var stringToReturn = dateObject.getFullYear() + '/' +
+    dateObject.getMonth() + '/' +
     dateObject.getDate();
   return stringToReturn;
 }
@@ -261,8 +264,8 @@ function dayFromDateObject(dateObject) {
 // Function for parsing Date object into custom string containing time
 // in format HH:MM:SS
 function timeFromDateObject(dateObject) {
-  var stringToReturn = dateObject.getHours() + ":" +
-    dateObject.getMinutes() + ":" +
+  var stringToReturn = dateObject.getHours() + ':' +
+    dateObject.getMinutes() + ':' +
     dateObject.getSeconds();
   return stringToReturn;
 }
