@@ -76,8 +76,11 @@ Takmarkið var að gera vel hannaða síðu, með bæði útlit og virkni í hug
 gögnin með ásættanlegum hraða og án villna. Að okkar mati hefur allt ofangreint
 tekist ágætlega og ekkert athugavert við síðuna eins og hún stendur. Eina sem
 hefði mátt betur fara er hraðinn og navbar. Með nægilegri þekkingu væri mögulega
-hægt að gera Google Maps kortið eilítið hraðari (asynchronous virkni t.d.) þegar það er að eiga við mikið af grafískum gögnum. Navbarið er ekki fullkomlega skalanlegt
-þar sem það var ekki hannað til að notast í mobile tækjum.
+hægt að gera Google Maps kortið eilítið hraðari (asynchronous virkni t.d.) þegar 
+það er að eiga við mikið af grafískum gögnum. Navbarið er ekki fullkomlega skalanlegt
+þar stickyNavbar pakkinn svar ekki hanna[ur til að notast í mobile tækjum. Einnig þá var
+bug varðandi navbarinn að hann hoppar upp örlítið of snemma og myndar gap á milli innihalds
+og navbarins í örlitla stund.
 
 ## Niðurstaða ##
 Síðan hefur heppnast ágætlega og engar alvarlegar villur eiga sér stað
