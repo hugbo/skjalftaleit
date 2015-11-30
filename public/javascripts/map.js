@@ -267,7 +267,7 @@ function quake(latitude, longitude, richter, timestamp, location, dataOrigin) {
 // in format YYYY/MM/DD
 function dayFromDateObject(dateObject) {
   var stringToReturn = dateObject.getFullYear() + '/' +
-    dateObject.getMonth() + '/' +
+    (dateObject.getMonth()+1) + '/' +
     dateObject.getDate();
   return stringToReturn;
 }
