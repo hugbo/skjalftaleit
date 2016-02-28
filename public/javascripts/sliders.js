@@ -46,9 +46,9 @@ $(document).ready(function() {
     sliderTime.ionRangeSlider({
       hide_min_max: true,
       keyboard: true,
-      min: 1448064000, //The oldest earthquake happened on Nov. 21 (unix format)
+      min: 1452297600, //The oldest earthquake happened on Nov. 21 (unix format)
       max: +moment().format('X'), // Current time (unix)
-      from: 1448064000,
+      from: 1452297600,
       to: +moment().format('X'),
       type: 'double',
       grid: true,
