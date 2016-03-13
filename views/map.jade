@@ -4,22 +4,22 @@
 .mapInfo
     .mapInfoText
         p.
-            On the map below you can see the earthquakes that have taken place on Iceland since the 26th of November and the rest of the world 
-            from the 9th of January, 2016. You can choose between markers for the earthquakes, circles whose size correspond to the earthquakes 
+            On the map below you can see the earthquakes that have taken place on Iceland and the rest of the world 
+            from the 9th of January, 2016. You can choose between markers for the earthquakes, circles whose size correspond to the earthquakes
             magnitude, or a heatmap. You can also use the sliders to choose what magnitude earthquakes to show, or what time period to choose from.
     p.mapInfoToggle Show instructions
-        
+
 #map
    script(src="../public/javascripts/map.js")
    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdOFizGF7LrYOyNztioh9k0sL3cODbd18&callback=initMap&libraries=geometry,visualization" sync defer)
-    
+
 .sliders
     p(class='slider-text') Determine the magnitude of displayed earthquakes
     #slider-size
     p(class='slider-text') Determine the time period of displayed earthquakes
     #slider-time
-        
-#mapSelector.scrollto  
+
+#mapSelector.scrollto
 
 .tableCheck
     table#checkers
@@ -28,8 +28,8 @@
           label(for='checkbox')
             input(type='checkbox' checked)#markerCheckbox
             | Marker
-        td 
-          | Place markers where each earthquacke occured. The markers are identical but on 
+        td
+          | Place markers where each earthquacke occured. The markers are identical but on
           br
           | click will display information about their respective earthquake.
       tr
@@ -37,8 +37,8 @@
           label(for='checkbox')
             input(type='checkbox' )#circleCheckbox
             | Circles
-        td 
-          | Places circles where each earthquake occured. The size of the circle is proportionate 
+        td
+          | Places circles where each earthquake occured. The size of the circle is proportionate
           br
           | to the size of the earthquake and so is the intensity of the colour.
       tr
@@ -46,7 +46,7 @@
           label(for='checkbox')
             input(type='checkbox' )#heatCheckbox
             | Heatmap
-        td 
-          | Produces a heatmap that shows whether earthquakes a frequent 
+        td
+          | Produces a heatmap that shows whether earthquakes a frequent
           br
           | and/or of great magnitude on each location.
