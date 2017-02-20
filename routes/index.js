@@ -6,10 +6,14 @@ var request = require('request'); //request module used for easy get requests.
 var updateDB = require('../lib/StoreData'); //connection to StoreData.js
 
 /* Variables for the USGS request function */
-var initDate = '2016-12-09'; //initial date we want to use when server starts
 var d = new Date();
 var startDate = d.getFullYear() + '-' + (d.getMonth() + 1)+
 '-' + (d.getDate() - 2); //we want to monitor data from the last 2 days
+
+var initDate = d.getFullYear() + '-' + (d.getMonth())+
+'-' + (d.getDate()); //we want to monitor data from the last 2 days
+ //initial date we want to use when server starts
+
 
 var endDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + (d.getDate());
 var minMagnitude = 0;
@@ -66,11 +70,15 @@ function getWorldQuakeData(start, end, min, max) {
   var maxmagnitude = '&maxmagnitude=' + max;
   var fetchUrl = url + startTime + endTime + minmagnitude + maxmagnitude;
   console.log(fetchUrl);
-  request(fetchUrl, function(err, res, body) {
-    console.log('fetching World data..');
-    var data = JSON.parse(body);
-    updateDB.updateTablesUSGS(data.features);
-  });
+  try {
+    request(fetchUrl, function(err, res, body) {
+      console.log('fetching World data..');
+      var data = JSON.parse(body);
+      updateDB.updateTablesUSGS(data.features);
+    });
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 
@@ -81,11 +89,15 @@ function getWorldQuakeData(start, end, min, max) {
 */
 function getIcelandicQuakeData() {
   var url = 'http://apis.is/earthquake/is';
-  request(url, function(err, res, body) {
-    console.log('Icelandic Data');
-    var data = JSON.parse(body);
-    updateDB.updateTablesAPIS(data.results);
-  });
+  try {
+    request(url, function(err, res, body) {
+      console.log('Icelandic Data');
+      var data = JSON.parse(body);
+      updateDB.updateTablesAPIS(data.results);
+    });
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 module.exports = router;
